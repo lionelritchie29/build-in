@@ -15,7 +15,7 @@ export default function Navbar({ title }: Props) {
       <div className='flex text-white items-center'>
         <ChevronLeftIcon
           onClick={() => router.back()}
-          className='w-6 h-6 mr-2'></ChevronLeftIcon>
+          className='cursor-pointer w-6 h-6 mr-2'></ChevronLeftIcon>
         <span className='text-xl font-semibold'>{title}</span>
       </div>
 

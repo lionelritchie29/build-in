@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-primary {
-  background-color: #5daabc;
+@layer utilities {
+  .bg-primary {
+    background-color: #5daabc;
+  }
+
+  .bg-primary-dark {
+    background-color: #4696a8;
+  }
+
+  .bg-primary-light {
+    background-color: #6bb4c4;
+  }
 }

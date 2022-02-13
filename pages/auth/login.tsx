@@ -120,8 +120,7 @@ export default function Login() {
             className={classNames(
               'inline-flex w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2',
               {
-                'bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500':
-                  !isLoading,
+                'bg-primary-light hover:bg-primary-dark': !isLoading,
                 'bg-gray-400': isLoading,
               },
             )}>

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -44,5 +45,20 @@ const Index: NextPage = () => {
     </Layout>
   );
 };
+
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
+  if (session) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: { session },
+  };
+}
 
 export default Index;

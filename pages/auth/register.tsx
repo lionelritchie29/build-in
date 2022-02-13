@@ -8,7 +8,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-toastify';
 import { AuthService } from '../../services/AuthService';
 import { ApiResponse } from '../../models/ApiResponse';
-import { zeroPad } from '../../lib/helper';
+import { getSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 type Inputs = {
   name: string;
@@ -20,6 +21,7 @@ type Inputs = {
 };
 
 export default function Register() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -29,13 +31,15 @@ export default function Register() {
   } = useForm<Inputs>();
 
   const [dob, setDob] = useState(new Date());
+  const [isLoading, setIsLoading] = useState(false);
   const confirmPass = watch('cpassword');
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const authService = new AuthService();
     const payload = { ...data, dob: dob.toISOString().substring(0, 10) };
 
-    toast.promise(authService.register(payload), {
+    setIsLoading(true);
+    const res = await toast.promise(authService.register(payload), {
       pending: 'Processing your request...',
       success: {
         render({ data }: { data: ApiResponse<any> }) {
@@ -45,6 +49,12 @@ export default function Register() {
       },
       error: 'Ups, something is wrong. Please contact your developer.',
     });
+
+    if (res.success) {
+      router.push('/auth/login');
+    } else {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -254,12 +264,35 @@ export default function Register() {
 
         <div className='mt-4'>
           <button
+            disabled={isLoading}
             type='submit'
-            className='inline-flex w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
+            className={classNames(
+              'inline-flex w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2',
+              {
+                'bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500':
+                  !isLoading,
+                'bg-gray-400': isLoading,
+              },
+            )}>
             Submit
           </button>
         </div>
       </form>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
+  if (session) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: { session },
+  };
 }

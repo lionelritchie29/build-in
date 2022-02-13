@@ -5,7 +5,11 @@ export default function Home() {
   const session = useSession();
   console.log(session);
 
-  return <Layout title='Home'>Welcome, {session.data.user.name}</Layout>;
+  return (
+    <Layout showMenu={true} title='Bu!ld-In'>
+      Welcome, {session.data.user.name}
+    </Layout>
+  );
 }
 
 export async function getServerSideProps(context) {

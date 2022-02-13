@@ -7,6 +7,7 @@ type Props = {
   children: any;
   withNavbar?: boolean;
   className?: string;
+  showMenu?: boolean;
 };
 
 export default function Layout({
@@ -14,8 +15,10 @@ export default function Layout({
   children,
   withNavbar,
   className,
+  showMenu,
 }: Props) {
   withNavbar = withNavbar === undefined ? true : withNavbar;
+  showMenu = showMenu === undefined ? false : showMenu;
 
   return (
     <div>
@@ -25,8 +28,8 @@ export default function Layout({
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className='max-w-md mx-auto md:border-l md:border-r border-gray-300 min-h-screen'>
-        {withNavbar && <Navbar title={title} />}
+      <div className='max-w-md mx-auto md:border-l md:border-r border-gray-300 min-h-screen relative overflow-hidden'>
+        {withNavbar && <Navbar title={title} showMenu={showMenu} />}
         <main className={classNames('px-4 py-2', className)}>{children}</main>
       </div>
     </div>

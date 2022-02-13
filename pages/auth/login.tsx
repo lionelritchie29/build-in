@@ -38,6 +38,14 @@ export default function Login() {
       console.log(result);
 
       toast.dismiss();
+
+      if (!result) {
+        console.log('Result is undefined');
+        toast.error(
+          'Ups, something is wrong with the server, please contact your developer.',
+        );
+      }
+
       if (result.error) {
         setIsLoading(false);
         toast.error(result.error);

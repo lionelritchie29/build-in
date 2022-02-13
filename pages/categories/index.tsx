@@ -7,6 +7,7 @@ import profileIcon from '../../public/images/profile.png';
 import homeIcon from '../../public/images/home.png';
 import chatIcon from '../../public/images/chat.png';
 import BottomNav from '../../components/shared/_BottomNav';
+import { getSession } from 'next-auth/react';
 
 export default function Categories() {
   const categories: Category[] = dummy.categories;
@@ -54,4 +55,19 @@ export default function Categories() {
       <BottomNav links={bottomLinks} />
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: { session },
+  };
 }

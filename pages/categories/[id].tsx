@@ -1,3 +1,4 @@
+import { getSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -12,6 +13,11 @@ export default function SubCategoryPage() {
 
   const categories: Category[] = dummy.categories;
   const category: Category = categories.find((c) => c.id == id);
+
+  if (!category) {
+    router.push('/home');
+  }
+
   return (
     <Layout title={category.title}>
       <ul className='grid grid-cols-2 gap-x-8 gap-y-16 px-2 py-8'>
@@ -35,4 +41,19 @@ export default function SubCategoryPage() {
       </ul>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: { session },
+  };
 }

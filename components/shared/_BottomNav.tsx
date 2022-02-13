@@ -13,13 +13,13 @@ export default function BottomNav({ links }: Props) {
   return (
     <ul className='absolute bottom-0 left-0 bg-primary w-full grid grid-cols-3 gap-x-2'>
       {links.map((link, idx) => (
-        <li className='flex justify-center py-1' key={idx}>
+        <li className='flex justify-center' key={idx}>
           <Link href={link.href} passHref={true}>
             <div>
               <Image
-                width={60}
+                width={50}
                 className='object-contain'
-                height={60}
+                height={50}
                 src={link.image}
                 alt={link.title}
               />

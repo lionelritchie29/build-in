@@ -81,7 +81,7 @@ export default function Navbar({ title, showMenu }: Props) {
       </div>
 
       <div
-        className={`absolute top-0 left-0 min-h-screen w-full transition-all duration-500 ${
+        className={`z-20 absolute top-0 left-0 min-h-screen w-full transition-all duration-500 ${
           sideNavOpen ? '' : '-translate-x-full'
         }`}
         style={{ background: 'rgba(0,0,0,0.5)' }}>

@@ -28,20 +28,30 @@ export default function Login() {
     toast.info('Signing in...');
     setIsLoading(true);
 
-    const result = await signIn('credentials', {
-      redirect: false,
-      email: email,
-      password: password,
-    });
+    try {
+      const result = await signIn('credentials', {
+        redirect: false,
+        email: email,
+        password: password,
+      });
 
-    toast.dismiss();
-    if (result?.error) {
-      setIsLoading(false);
-      toast.error(result.error);
-    } else {
-      reset();
-      toast.success('Login success!');
-      router.push('/home');
+      console.log(result);
+
+      toast.dismiss();
+      if (result.error) {
+        setIsLoading(false);
+        toast.error(result.error);
+      } else {
+        reset();
+        toast.success('Login success!');
+        router.push('/home');
+      }
+    } catch (e) {
+      console.log(e);
+      toast.dismiss();
+      toast.error(
+        'Ups, something is wrong with the server, please contact your developer.',
+      );
     }
   };
 

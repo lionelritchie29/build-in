@@ -35,7 +35,7 @@ export default function Login() {
     });
 
     toast.dismiss();
-    if (result.error) {
+    if (result?.error) {
       setIsLoading(false);
       toast.error(result.error);
     } else {

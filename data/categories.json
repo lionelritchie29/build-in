@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Aksesoris",
+      "image": "categories/1.png"
+    },
+    {
+      "id": 2,
+      "title": "Arsitektur",
+      "image": "categories/2.png"
+    },
+    {
+      "id": 3,
+      "title": "Lain - lain",
+      "image": "categories/3.png"
+    },
+    {
+      "id": 4,
+      "title": "Interior",
+      "image": "categories/4.png"
+    },
+    {
+      "id": 5,
+      "title": "Materials",
+      "image": "categories/5.png"
+    },
+    {
+      "id": 6,
+      "title": "Furniture",
+      "image": "categories/6.png"
+    }
+  ]
+}

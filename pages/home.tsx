@@ -1,13 +1,35 @@
 import { getSession, useSession } from 'next-auth/react';
 import Layout from '../components/shared/_layout';
+import profileIcon from '../public/images/profile.png';
+import categoryIcon from '../public/images/category.png';
+import chatIcon from '../public/images/chat.png';
+import BottomNav from '../components/shared/_BottomNav';
 
 export default function Home() {
   const session = useSession();
-  console.log(session);
+
+  const bottomLinks = [
+    {
+      title: '',
+      image: profileIcon,
+      href: '/home',
+    },
+    {
+      title: '',
+      image: categoryIcon,
+      href: '/categories',
+    },
+    {
+      title: '',
+      image: chatIcon,
+      href: '/home',
+    },
+  ];
 
   return (
     <Layout showMenu={true} title='Bu!ld-In'>
       Welcome, {session.data.user.name}
+      <BottomNav links={bottomLinks} />
     </Layout>
   );
 }

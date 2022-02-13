@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Chair & Sofa",
+      "image": "categories/1.png"
+    },
+    {
+      "id": 2,
+      "title": "Tempat Tidur",
+      "image": "categories/2.png"
+    },
+    {
+      "id": 3,
+      "title": "Kasur",
+      "image": "categories/3.png"
+    },
+    {
+      "id": 4,
+      "title": "Meja dan Kursi Makan",
+      "image": "categories/4.png"
+    },
+    {
+      "id": 5,
+      "title": "Coffee Table",
+      "image": "categories/5.png"
+    },
+    {
+      "id": 6,
+      "title": "Credenza",
+      "image": "categories/6.png"
+    },
+    {
+      "id": 7,
+      "title": "Meja Rias",
+      "image": "categories/7.png"
+    },
+    {
+      "id": 8,
+      "title": "Stool",
+      "image": "categories/8.png"
+    }
+  ]
+}

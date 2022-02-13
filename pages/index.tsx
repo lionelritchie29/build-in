@@ -1,9 +1,8 @@
 import type { NextPage } from 'next';
 import { getSession } from 'next-auth/react';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import logo from '../assets/images/logo.png';
+import logo from '../public/images/logo.png';
 import Layout from '../components/shared/_layout';
 
 const Index: NextPage = () => {

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import logo from '../../assets/images/logo-small.png';
+import logo from '../../public/images/logo-small.png';
 import { ChevronLeftIcon, MenuIcon } from '@heroicons/react/outline';
 import { useRouter } from 'next/router';
 import Link from 'next/link';

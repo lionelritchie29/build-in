@@ -10,7 +10,6 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {
-        console.log(credentials);
         const client = await clientPromise;
         const users = await client.db().collection('users');
         const result = await users.findOne({
@@ -29,7 +28,6 @@ export default NextAuth({
         if (!checkPassword) {
           throw new Error('Password doesnt match');
         }
-
         return result;
       },
     }),

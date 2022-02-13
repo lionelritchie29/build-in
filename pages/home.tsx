@@ -1,8 +1,11 @@
-import { getSession } from 'next-auth/react';
+import { getSession, useSession } from 'next-auth/react';
 import Layout from '../components/shared/_layout';
 
 export default function Home() {
-  return <Layout title='Home'>Hehe</Layout>;
+  const session = useSession();
+  console.log(session);
+
+  return <Layout title='Home'>Welcome, {session.data.user.name}</Layout>;
 }
 
 export async function getServerSideProps(context) {

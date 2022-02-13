@@ -18,11 +18,10 @@ export default function Layout({ title, children, withNavbar }: Props) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      {withNavbar && <Navbar title={title} />}
-
-      <main className='max-w-md mx-auto md:border-l md:border-r border-gray-300'>
-        {children}
-      </main>
+      <div className='max-w-md mx-auto md:border-l md:border-r border-gray-300 min-h-screen'>
+        {withNavbar && <Navbar title={title} />}
+        <main>{children}</main>
+      </div>
     </div>
   );
 }

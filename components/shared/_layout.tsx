@@ -28,7 +28,7 @@ export default function Layout({
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className='max-w-md mx-auto md:border-l md:border-r border-gray-300 min-h-screen relative overflow-hidden'>
+      <div className='max-w-md mx-auto md:border-l md:border-r pb-10 border-gray-300 min-h-screen relative overflow-hidden'>
         {withNavbar && <Navbar title={title} showMenu={showMenu} />}
         <main className={classNames('px-4 py-2', className)}>{children}</main>
       </div>

@@ -44,6 +44,7 @@ export default function Login() {
         toast.error(
           'Ups, something is wrong with the server, please contact your developer.',
         );
+        return;
       }
 
       if (result.error) {

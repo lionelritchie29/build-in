@@ -1,0 +1,403 @@
+{
+  "accesories": [
+    {
+      "category_id": 1,
+      "sub_category_id": "491c283c-4800-4899-8d15-8f16c5178d5f",
+      "products": [
+        {
+          "id": "b421315c-4f5e-4100-95cd-84934fa63ace",
+          "name": "Jolene Indoor / Outdoor Floor Pillow",
+          "image": "accesories/cusions/1.jpg",
+          "price": 125000,
+          "size": "40x20 cm",
+          "weight": "230 gr",
+          "material": ["Katun"],
+          "style": "Sleepwear",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam", "Merah"]
+            }
+          ]
+        },
+        {
+          "id": "afea5fa0-bff9-4afd-a452-06208166c5e0",
+          "name": "Rohini Velvet Daybed Cushion",
+          "image": "accesories/cusions/2.jpg",
+          "price": 140000,
+          "size": "35x25 cm",
+          "weight": "280 gr",
+          "material": ["Katun"],
+          "style": "Sleepwear",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam", "Merah"]
+            }
+          ]
+        },
+        {
+          "id": "481ffcaf-6309-4b15-8c63-a0d079c2610d",
+          "name": "Decowat Cushion Cover",
+          "image": "accesories/cusions/3.jpg",
+          "price": 240000,
+          "size": "35x25x15 cm",
+          "weight": "400 gr",
+          "material": ["Katun"],
+          "style": "Sleepwear",
+          "product": "5 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam", "Merah"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": 1,
+      "sub_category_id": "2c50460c-2e04-4323-a440-2b1ff026304a",
+      "products": [
+        {
+          "id": "37d65e2b-abf5-461d-9286-92ee9dcbc8a2",
+          "name": "Skye Velvet Duvet Cover",
+          "image": "accesories/seprei/1.jpg",
+          "price": 600000,
+          "size": "2000x1500 cm",
+          "weight": "400 gr",
+          "material": ["Sutra"],
+          "style": "Blanket",
+          "product": "3 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Pink", "Sky Blue"]
+            }
+          ]
+        },
+        {
+          "id": "785ee647-5a4c-45c8-a349-5e88cd311779",
+          "name": "Samantha Embroidered Floral Duvet Cover",
+          "image": "accesories/seprei/2.jpg",
+          "price": 570000,
+          "size": "200 cm",
+          "weight": "600 gr",
+          "material": ["Cotton"],
+          "style": "Blanket",
+          "product": "3 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Pink", "Sky Blue"]
+            }
+          ]
+        },
+        {
+          "id": "93a1cd2f-25f0-4703-a897-e6d775fb2038",
+          "name": "Mona Duvet Cover",
+          "image": "accesories/seprei/3.jpg",
+          "price": 565000,
+          "size": "2000x1500 cm",
+          "weight": "400 gr",
+          "material": ["Sutra"],
+          "style": "Blanket",
+          "product": "5 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Orange", "Merah"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": 1,
+      "sub_category_id": "ec281d25-100d-4415-878a-1c54c74dd12d",
+      "products": [
+        {
+          "id": "3fdb796b-a8ca-47f4-8a1e-17222f40d2a0",
+          "name": "Himalayan Salt Lamp",
+          "image": "accesories/lamps/1.jpg",
+          "price": 350000,
+          "size": "25x20 cm",
+          "weight": "500 gr",
+          "material": ["Kayu"],
+          "style": "Display",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam", "Pink"]
+            }
+          ]
+        },
+        {
+          "id": "c41b1ced-1860-4351-8189-94cdef8335cd",
+          "name": "Heidi Rattan Pendant Light Shade",
+          "image": "accesories/lights/2.jpg",
+          "price": 450000,
+          "size": "40x40 cm",
+          "weight": "500 gr",
+          "material": ["Kayu"],
+          "style": "Chandelier",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam", "Pink"]
+            }
+          ]
+        },
+        {
+          "id": "2ac92633-8f7c-4480-bfd6-bb5364b5a29a",
+          "name": "Marcella Arc Floor Lamp",
+          "image": "accesories/lamps/3.jpg",
+          "price": 300000,
+          "size": "30x15 cm",
+          "weight": "100 gr",
+          "material": ["Kayu"],
+          "style": "Display",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam", "Pink"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": 1,
+      "sub_category_id": "4bfeba57-b894-4d63-96ff-5bdeab072611",
+      "products": [
+        {
+          "id": "76026cf6-fa75-428e-b913-dce1ef8bd5ce",
+          "name": "Gigi Arch Print Hanger",
+          "image": "accesories/pajangan/1.jpg",
+          "price": 200000,
+          "size": "25x30 cm",
+          "weight": "250 gr",
+          "material": ["Kayu", "Acrylic"],
+          "style": "Display",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam", "Merah"]
+            }
+          ]
+        },
+        {
+          "id": "13cd7f53-48a2-41b9-a920-2f13a03a158a",
+          "name": "Locket 5x7 Picture Frame",
+          "image": "accesories/pajangan/2.jpg",
+          "price": 200000,
+          "size": "50x40 cm",
+          "weight": "250 gr",
+          "material": ["Kayu"],
+          "style": "Chandelier",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Kuning", "Hitam"]
+            }
+          ]
+        },
+        {
+          "id": "82ad5999-d5f7-482f-a719-2e0e110ed833",
+          "name": "Keychron Pendulum",
+          "image": "accesories/pajangan/3.jpg",
+          "price": 150000,
+          "size": "15x20 cm",
+          "weight": "200 gr",
+          "material": ["Plastik"],
+          "style": "Display",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam", "Merah"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": 1,
+      "sub_category_id": "3f7ad90a-c8ce-4fa7-ae40-22519e297145",
+      "products": [
+        {
+          "id": "43484eb6-0558-4f7e-aec7-bb5e42120cd4",
+          "name": "Modern Hilo Tufted Rug",
+          "image": "accesories/carpets/1.jpg",
+          "price": 350000,
+          "size": "50x40 cm",
+          "weight": "250 gr",
+          "material": ["Microfiber"],
+          "style": "Life Wear",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Kuning", "Merah"]
+            }
+          ]
+        },
+        {
+          "id": "76bbe108-84e8-45b7-9558-23b75082afe6",
+          "name": "Homewell Folding Carpet",
+          "image": "accesories/carpets/2.jpg",
+          "price": 280000,
+          "size": "100x50 cm",
+          "weight": "450 gr",
+          "material": ["Micro Fiber"],
+          "style": "Life Wear",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Biru", "Kuning", "Merah"]
+            }
+          ]
+        },
+        {
+          "id": "b2397d21-a5a0-4d05-816d-ba6a30b5ff13",
+          "name": "Peachy Clean Bath Mat",
+          "image": "accesories/carpets/3.jpg",
+          "price": 250000,
+          "size": "50x40 cm",
+          "weight": "250 gr",
+          "material": ["Micro Fiber"],
+          "style": "Lifewear",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Kuning", "Merah"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": 1,
+      "sub_category_id": "7cc67c42-e39b-4e97-bc0b-6bed6cfe6e8d",
+      "products": [
+        {
+          "id": "2efc5667-d4f1-4791-85f8-5ab0fdda3534",
+          "name": "Carson Leather Strap Mirror",
+          "image": "accesories/cermin/1.jpg",
+          "price": 200000,
+          "size": "30 cm",
+          "weight": "200 gr",
+          "material": ["Plastik"],
+          "style": "Life Wear",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Kuning", "Hitam"]
+            }
+          ]
+        },
+        {
+          "id": "387136df-d201-4bd8-86d5-590cd8fccd8d",
+          "name": "Bellevue Floor Mirror",
+          "image": "accesories/cermin/2.jpg",
+          "price": 400000,
+          "size": "50x150 cm",
+          "weight": "400 gr",
+          "material": ["Kayu"],
+          "style": "Life Wear",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Silver", "Rose Gold"]
+            }
+          ]
+        },
+        {
+          "id": "00e24b7f-d95d-4488-b5cf-04057aafc1a9",
+          "name": "Bellevue Sensor Mirror Trio",
+          "image": "accesories/cermin/3.jpg",
+          "price": 150000,
+          "size": "30x40 cm",
+          "weight": "350 gr",
+          "material": ["Plastik"],
+          "style": "Lifewear",
+          "product": "1 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Silver", "Hitam"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": 1,
+      "sub_category_id": "d612b668-e5d6-4470-b5c4-06de666a37aa",
+      "products": [
+        {
+          "id": "94bf517a-23a0-49c4-9d59-cce4260a42cc",
+          "name": "GSI Outdoors Pioneer Cutlery Set",
+          "image": "accesories/cuttleries/1.jpg",
+          "price": 200000,
+          "size": "20 cm",
+          "weight": "200 gr",
+          "material": ["Plastik", "Alumunium"],
+          "style": "Industrial",
+          "product": "3 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Hijau", "Merah"]
+            }
+          ]
+        },
+        {
+          "id": "e92d433c-0142-4390-9c86-85c3276df375",
+          "name": "Vesuvio Set",
+          "image": "accesories/cuttleries/2.jpg",
+          "price": 300000,
+          "size": "30x25x15 cm",
+          "weight": "1 Kg",
+          "material": ["Ceramic"],
+          "style": "Industrial",
+          "product": "4 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Putih", "Hitam"]
+            }
+          ]
+        },
+        {
+          "id": "1e614ff3-8cfa-4d14-ad58-63f3cfe63eb4",
+          "name": "Lia Golden Flatware Set",
+          "image": "accesories/cuttleries/3.jpg",
+          "price": 200000,
+          "size": "30 cm",
+          "weight": "200 gr",
+          "material": ["Stainless Steel"],
+          "style": "Modern",
+          "product": "4 Pc",
+          "variations": [
+            {
+              "type": "CheckedColor",
+              "options": ["Emas", "Perak"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

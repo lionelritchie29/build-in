@@ -1,0 +1,157 @@
+{
+  "others": [
+    {
+      "category_id": 3,
+      "sub_category_id": "4582eea1-56bb-4ff2-9a6f-23dd071168b4",
+      "products": [
+        {
+          "id": "e07f4b5b-f7f3-4468-8149-5f44f17b714b",
+          "name": "Pemasangan Lampu",
+          "seller": "Lamp Master",
+          "image": "others/pemasangan/1.jpg",
+          "price": "50000-300000",
+          "header": "Jasa Service Pemasangan Lampu",
+          "description": "Kami Menyediakan Jasa Service Pemasangan Lampu,Mulai dari  pemasangan Lampu untuk segala jenis Lampu.Dan service kami sangatlah Terjaga Kualitas nya.",
+          "services": [
+            "Set Lampu Hias - 50.000",
+            "Pemasangan Lampu Panjang Full Set - 300.000",
+            "Pasang Lampu Kecil - 150.000",
+            "Pasang Lampu Besar-100.000"
+          ]
+        },
+        {
+          "id": "df8e74e6-6ea0-469b-9744-cc23a4dea42f",
+          "name": "Pemasangan AC",
+          "seller": "AC Services",
+          "image": "others/pemasangan/2.jpg",
+          "price": "40000-300000",
+          "header": "Jasa Service Pemasangan AC",
+          "description": "Kami Menyediakan Jasa Service Pemasangan AC,Mulai dari  pemasangan AC untuk segala jenis.Dan service kami sangatlah Terjaga Kualitas nya.",
+          "services": [
+            "Pemasangan Normal - 40.000",
+            "Pemasangan Apartemen - 300.000",
+            "Pemasangan Kantor - 200.000",
+            "Pembuatan Set Tempat AC - 40.000"
+          ]
+        },
+        {
+          "id": "a539e432-a03e-41ac-b41b-e719c6905a44",
+          "name": "Pemasangan Keramik Lantai",
+          "seller": "Services QQS",
+          "image": "others/pemasangan/3.jpg",
+          "price": "200000-450000",
+          "header": "Jasa Service Pemasangan Keramik",
+          "description": "Kami Menyediakan Jasa Service Pemasangan Keramik, Mulai dari  pemasangan Keramik untuk segala jenis Lantai dan service kami sangatlah Terjaga kualitas nya.",
+          "services": [
+            "Pemasangan Ukuran Kamar - 200.000",
+            "Pemasangan Ukuran Kamar Mandi - 150.000",
+            "Pemasangan Ukuran Taman - 340.000",
+            "Pemasangan Ukuran Ruang Keluarga - 450.000"
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": 3,
+      "sub_category_id": "82fc236a-a4fe-4a72-af71-e16eac1510ea",
+      "products": [
+        {
+          "id": "8ef8f310-f75d-488a-ae65-6c895c868034",
+          "name": "Outdoor Fountain",
+          "seller": "PlatQ",
+          "image": "others/taman/1.jpg",
+          "price": "150000-450000",
+          "header": "Jasa Service Taman",
+          "description": "Kami Menyediakan Jasa Pemasangan Outdoor Fountain,Mulai dari  pemasangan untuk taman dan lain lain.Dan service kami sangatlah Terjaga Kualitas nya.",
+          "services": [
+            "Taman - 150.000",
+            "Kolam Mini - 170.000",
+            "Kolam Besar - 340.000",
+            "Desain Khusus untuk Water Show - 450.000"
+          ]
+        },
+        {
+          "id": "9435849b-251e-4869-85aa-bded9e69f3a5",
+          "name": "Rak Tanaman Bambo",
+          "seller": "Jon Ham",
+          "image": "others/taman/2.jpg",
+          "price": "35000-100000",
+          "header": "Pasang Tanaman Bambo",
+          "description": "Kami Menyediakan Jasa Service Pemasangan Tanaman Bambo.pemasangan Tanaman Bambo untuk segala jenis Ukuran.Dan service kami sangatlah Terjaga Kualitas nya.",
+          "services": [
+            "Ukuran Mini (S) - 35.000",
+            "Ukuran L - 45.000",
+            "Ukuran XL -55.000",
+            "Ukuran XXL - 100.000"
+          ]
+        },
+        {
+          "id": "dc488a61-3274-426b-b360-2745450ce434",
+          "name": "Plant Hangar",
+          "seller": "HangGO",
+          "image": "others/taman/3.jpg",
+          "price": "35000-110000",
+          "header": "Jasa Pasang Plant Hangar",
+          "description": "Kami Menyediakan Jasa Service Pemasangan Plant Hangar.pemasangan Plant Hangar untuk segala jenis Ukuran dan Bentuknya.Dan service kami sangatlah Terjaga Kualitas nya.",
+          "services": [
+            "Ukuran S - 35.000",
+            "Ukuran L - 45.000",
+            "Ukuran XL -55.000",
+            "Ukuran XXL - 100.000"
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": 3,
+      "sub_category_id": "e113698a-18fc-46e2-b6a7-91b778894b40",
+      "products": [
+        {
+          "id": "2b1e0f25-07f5-4003-906f-02a5a2efa151",
+          "name": "Service AC",
+          "seller": "Big Bro",
+          "image": "others/service/1.jpg",
+          "price": "75000-400000",
+          "header": "Jasa Service AC",
+          "description": "Kami Menyediakan Jasa Service AC,Mulai dari pembersihan dan pemasangan AC untuk segala jenis AC.Dan service kami sangatlah Terjaga Kualitas nya.",
+          "services": [
+            "Services Normal - 150.000",
+            "Full Services - 400.000",
+            "Isi Freon - 75.000",
+            "Pembersihan Kipas Luar - 100.000"
+          ]
+        },
+        {
+          "id": "934f2b6f-ff2c-4f66-a25f-a8f841d91f65",
+          "name": "Service Saluran Air/Pipa",
+          "seller": "Water Clean",
+          "image": "others/service/2.jpg",
+          "price": "75000-400000",
+          "header": "Jasa Service Saluran Air / Pipa",
+          "description": "Kami Menyediakan Jasa Service Saluran Air,Mulai dari pembersihan dan pemasangan Pipa untuk segala jenis Pipa.Dan service kami sangatlah Terjaga Kualitas nya.",
+          "services": [
+            "Services Normal - 150.000",
+            "Full Services - 400.000",
+            "Pasang Pipa Biasa - 75.000",
+            "Pasang pipa Besar - 100.000"
+          ]
+        },
+        {
+          "id": "64a59570-bba8-4400-8f12-aba89ce85a8f",
+          "name": "Service Atap",
+          "seller": "Pipe Guy",
+          "image": "others/service/3.jpg",
+          "price": "75000-400000",
+          "header": "Jasa Service Pemasangan Atap",
+          "description": "Kami Menyediakan Jasa Service Pemasangan Atap,Mulai dari  pemasangan Atap untuk segala jenis Atap.Dan service kami sangatlah Terjaga Kualitas nya.",
+          "services": [
+            "Services Normal - 150.000",
+            "Full Services - 400.000",
+            "Pasang Atap Kecil - 75.000",
+            "Pasang Atap Besar - 100.000"
+          ]
+        }
+      ]
+    }
+  ]
+}

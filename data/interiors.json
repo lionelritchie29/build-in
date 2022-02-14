@@ -1,0 +1,139 @@
+{
+  "interiors": [
+    {
+      "category_id": 4,
+      "sub_category_id": "cfecbdda-e9aa-4407-b958-94b5996b76c4",
+      "products": [
+        {
+          "id": "a511dc45-7998-445d-9dc8-90369ce0ca6e",
+          "name": "MW's Residence",
+          "image": "",
+          "creator": "Bagas Prakasa",
+          "creator_image": ""
+        },
+        {
+          "id": "1faf5bc3-ca6a-489e-9f59-af930105f19a",
+          "name": "Four Season Fort Lauderdale Penthouse",
+          "image": "",
+          "creator": "Jon Ham",
+          "creator_image": ""
+        },
+        {
+          "id": "cdef9107-c3a5-42c8-801e-4ef122c60ff1",
+          "name": "Grosvenor House",
+          "image": "",
+          "creator": "Sun Go",
+          "creator_image": ""
+        }
+      ]
+    },
+    {
+      "category_id": 4,
+      "sub_category_id": "6db47b11-999f-4772-ad06-03d64ca80352",
+      "products": [
+        {
+          "id": "068f3ee0-b011-405d-a8a2-29b25bb82d53",
+          "name": "Canteen Retail",
+          "image": "",
+          "creator": "Bagas Prakasa",
+          "creator_image": ""
+        },
+        {
+          "id": "cf781f47-baed-4f2f-9815-4727e82bc8e9",
+          "name": "Retail Simp",
+          "image": "",
+          "creator": "Jon Ham",
+          "creator_image": ""
+        },
+        {
+          "id": "6fe49569-2ac4-4eb2-ab0c-b7fa9053ca43",
+          "name": "Runway",
+          "image": "",
+          "creator": "Sun Go",
+          "creator_image": ""
+        }
+      ]
+    },
+    {
+      "category_id": 4,
+      "sub_category_id": "93ed3df1-f085-494f-9c8c-315e2c6db7ac",
+      "products": [
+        {
+          "id": "52f82d63-3c40-46f7-9cda-b271e7f31a38",
+          "name": "Nusantara Design",
+          "image": "",
+          "creator": "Bagas Prakasa",
+          "creator_image": ""
+        },
+        {
+          "id": "4979fedd-f891-4e4f-a3ff-98f9109d88b2",
+          "name": "Sarana Steel",
+          "image": "",
+          "creator": "Jon Ham",
+          "creator_image": ""
+        },
+        {
+          "id": "19a1a006-a555-42ec-9a40-0f1c9c949b37",
+          "name": "Accenture",
+          "image": "",
+          "creator": "Sun Go",
+          "creator_image": ""
+        }
+      ]
+    },
+    {
+      "category_id": 4,
+      "sub_category_id": "5580e739-3879-492e-97bb-c2a71cbe22fe",
+      "products": [
+        {
+          "id": "fc5eef03-e2b7-4bd4-81e3-41fd39b1b15e",
+          "name": "Mercure Hotel",
+          "image": "",
+          "creator": "Bagas Prakasa",
+          "creator_image": ""
+        },
+        {
+          "id": "af88b36f-38e9-4cf4-81ff-bf2d8b5d57c4",
+          "name": "Imperial Park Hotel",
+          "image": "",
+          "creator": "Jon Ham",
+          "creator_image": ""
+        },
+        {
+          "id": "441139fb-015b-464c-a781-a70868983b00",
+          "name": "Infinity Hotel",
+          "image": "",
+          "creator": "Sun Go",
+          "creator_image": ""
+        }
+      ]
+    },
+    {
+      "category_id": 4,
+      "sub_category_id": "c145d429-38e6-4296-8333-441241058c59",
+      "products": [
+        {
+          "id": "58fd5c3e-ae25-4ccd-ae64-0e3375bd4f4c",
+          "name": "Bucket of Heaven",
+          "image": "",
+          "creator": "Bagas Prakasa",
+          "creator_image": ""
+        },
+        {
+          "id": "4081608e-f9e0-44e3-a0f6-6fa23f95b5b9",
+          "name": "Wedding Props",
+          "image": "",
+          "creator": "Jon Ham",
+          "creator_image": ""
+        },
+        {
+          "id": "c833065b-536a-4ff5-90fa-119e4b5a91b2",
+          "name": "Visual Merchandise",
+          "image": "",
+          "creator": "Sun Go",
+          "creator_image": ""
+        }
+      ]
+    }
+  ]
+}

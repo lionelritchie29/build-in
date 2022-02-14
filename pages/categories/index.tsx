@@ -9,9 +9,7 @@ import chatIcon from '../../public/images/chat.png';
 import BottomNav from '../../components/shared/_BottomNav';
 import { getSession } from 'next-auth/react';
 
-export default function Categories() {
-  const categories: Category[] = dummy.categories;
-
+export default function Categories({ categories }) {
   const bottomLinks = [
     {
       title: '',
@@ -67,7 +65,10 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
+  const categories: Category[] = dummy.categories;
+
   return {
-    props: { session },
+    props: { session, categories },
   };
 }

@@ -1,0 +1,82 @@
+{
+  "materials": [
+    {
+      "category_id": 5,
+      "sub_category_id": "75d6ad9e-82fa-4699-9746-2f3ba21576be",
+      "products": [
+        {
+          "id": "ef769108-a800-480f-9022-fb159f03cc3f",
+          "name": "Breezy Blossoms Wallpaper",
+          "image": "materials/wallpapers/1.jpg",
+          "seller": "BBC",
+          "size": "250x600",
+          "price": 2000000,
+          "color": "Abu-abu",
+          "weight": "2 Kg",
+          "description": "Wallpaper dinding dengan motif menarik untuk mempercantik ruangan."
+        },
+        {
+          "id": "92dd72a2-c5bd-408e-9eef-4cd6aa638910",
+          "name": "Chamaedorea Wallpaper",
+          "image": "materials/wallpapers/2.jpg",
+          "seller": "Jon Ham",
+          "size": "250x600",
+          "price": 3000000,
+          "motive": "Daun dan Tropis",
+          "weight": "2 Kg",
+          "description": "Wallpaper dinding dengan motif tumbuhan untuk menambah kesan natural pada ruangan."
+        },
+        {
+          "id": "74be13ab-187c-43cf-a7e2-13228e6ea62a",
+          "name": "Ashland Wallpaper",
+          "image": "materials/wallpapers/3.jpg",
+          "seller": "Sand",
+          "size": "250x600",
+          "price": 3000000,
+          "color": "Abu-abu",
+          "weight": "1 Kg",
+          "description": "Wallpaper polos yang cocok pada ruangan dengan tema yang minimalis."
+        }
+      ]
+    },
+    {
+      "category_id": 5,
+      "sub_category_id": "75d6ad9e-82fa-4699-9746-2f3ba21576be",
+      "products": [
+        {
+          "id": "584bd384-eb63-439f-89a7-a01236f6973f",
+          "name": "Terrazo-Amber Pitch",
+          "image": "materials/floors/1.jpg",
+          "seller": "SandBag",
+          "size": "300x400",
+          "price": 2000000,
+          "color": "Putih Toska",
+          "weight": "4 Kg",
+          "description": "Keramik ini cocok untuk digunakan baik di gunakan sebagai Top Table Kitchen Set,Lantai baik di dalam maupun luar ruangan."
+        },
+        {
+          "id": "a754ba3c-18dc-45b7-b0bd-abb74280430b",
+          "name": "Parquet- Abington",
+          "image": "materials/floors/2.jpg",
+          "seller": "ViewNet",
+          "size": "250x600",
+          "price": 3000000,
+          "motive": "Coklat Muda",
+          "weight": "2,5 Kg",
+          "description": "Terbuat dari Kayu asli yang dapat memberikan kesan yang natural pada ruangan."
+        },
+        {
+          "id": "33f9f37f-552c-463a-a798-6bac228e1fa8",
+          "name": "Taco HPL- Natural Beech",
+          "image": "materials/floors/3.jpg",
+          "seller": "Sanitar",
+          "size": "250x600",
+          "price": 2000000,
+          "color": "Coklat Muda",
+          "weight": "3 Kg",
+          "description": "Cocok untuk digunakan melapisi lemari,kabinet,kursi,meja,dan berbagai furnitur lainnya."
+        }
+      ]
+    }
+  ]
+}

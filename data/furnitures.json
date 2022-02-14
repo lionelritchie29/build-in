@@ -1,44 +1,681 @@
 {
-  "categories": [
+  "furnitures": [
     {
-      "id": 1,
-      "title": "Chair & Sofa",
-      "image": "categories/1.png"
+      "category_id": 6,
+      "sub_category_id": "cfecbdda-e9aa-4407-b958-94b5996b76c4",
+      "products": [
+        {
+          "id": "2fa93657-189e-4e3b-bb9d-55987a9d77b0",
+          "name": "Yello U Lounge Chair",
+          "seller": "Sit & M4",
+          "image": "furniture/chairs/1.jpg",
+          "price": 1200000,
+          "size": "300x500x250",
+          "weight": "2 Kg",
+          "material": ["Kayu", "Stainless Ringan", "Kapuk"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Color",
+              "options": [
+                "black",
+                "white",
+                "lime",
+                "orange",
+                "purple",
+                "blue",
+                "green"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "7ff02c2d-1249-44a4-9e2b-407647c9d266",
+          "name": "Melody Rattan Daybed",
+          "seller": "Free8",
+          "image": "furniture/chairs/2.jpg",
+          "price": 2100000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Stainless Ringan", "Kapuk"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Color",
+              "options": [
+                "black",
+                "white",
+                "lime",
+                "orange",
+                "purple",
+                "blue",
+                "green"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cd5727ef-2da7-4f75-bc8d-286aa81dc4a0",
+          "name": "Timeless Chair",
+          "seller": "Sun Go",
+          "image": "furniture/chairs/3.jpg",
+          "price": 3100000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Color",
+              "options": [
+                "black",
+                "white",
+                "lime",
+                "orange",
+                "purple",
+                "blue",
+                "green"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": 2,
-      "title": "Tempat Tidur",
-      "image": "categories/2.png"
+      "category_id": 6,
+      "sub_category_id": "6db47b11-999f-4772-ad06-03d64ca80352",
+      "products": [
+        {
+          "id": "3540082d-288c-4201-8965-045f876ecee0",
+          "name": "Domi Divan Alba Grey",
+          "seller": "Prakley",
+          "image": "furniture/bed_holders/1.jpg",
+          "price": 4200000,
+          "size": "300x500x250",
+          "weight": "4 Kg",
+          "material": ["Kayu", "Stainless Ringan", "Kapuk"],
+          "style": "Industrial",
+          "condition": "Tidak Butuh Perakitan",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Ukuran",
+              "options": [
+                [
+                  "90 x 200 (Single)",
+                  "180 x 200 (King)",
+                  "120 x 200 (Double)",
+                  "200 x 200 (Super King)",
+                  "160 x200 (Queen)"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "07a8110e-19d5-4d04-883d-67c234a25ce2",
+          "name": "Riley Playform Bed",
+          "seller": "Squen",
+          "image": "furniture/bed_holders/2.jpg",
+          "price": 4200000,
+          "size": "300x500x250",
+          "weight": "6 Kg",
+          "material": ["Kayu", "Stainless Ringan", "Kapuk"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Ukuran",
+              "options": [
+                [
+                  "90 x 200 (Single)",
+                  "180 x 200 (King)",
+                  "120 x 200 (Double)",
+                  "200 x 200 (Super King)",
+                  "160 x200 (Queen)"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a73ef3f4-0aa2-4426-b067-8f07c1914b32",
+          "name": "Olivia Bed",
+          "seller": "Sun Go",
+          "image": "furniture/bed_holders/3.jpg",
+          "price": 4200000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Ukuran",
+              "options": [
+                [
+                  "90 x 200 (Single)",
+                  "180 x 200 (King)",
+                  "120 x 200 (Double)",
+                  "200 x 200 (Super King)",
+                  "160 x200 (Queen)"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": 3,
-      "title": "Kasur",
-      "image": "categories/3.png"
+      "category_id": 6,
+      "sub_category_id": "93ed3df1-f085-494f-9c8c-315e2c6db7ac",
+      "products": [
+        {
+          "id": "304911c6-dd0b-43e1-9905-3bc7930a365d",
+          "name": "Baybee Matrass",
+          "seller": "QQ",
+          "image": "furniture/beds/1.jpg",
+          "price": 2600000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kapuk", "Bulu Premiun"],
+          "style": "Industrial",
+          "condition": "Tidak Butuh Perakitan",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Ukuran",
+              "options": [
+                [
+                  "90 x 200 (Single)",
+                  "180 x 200 (King)",
+                  "120 x 200 (Double)",
+                  "200 x 200 (Super King)",
+                  "160 x200 (Queen)"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2f609ff2-1c71-4110-8212-90e86c02487d",
+          "name": "UnderLig",
+          "seller": "Bean",
+          "image": "furniture/beds/2.jpg",
+          "price": 2200000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Bulu Premium"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Ukuran",
+              "options": [
+                [
+                  "90 x 200 (Single)",
+                  "180 x 200 (King)",
+                  "120 x 200 (Double)",
+                  "200 x 200 (Super King)",
+                  "160 x200 (Queen)"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "37277200-cbdd-46d4-92bc-a4f2995278ba",
+          "name": "Fcenter Comforta Matras",
+          "seller": "Sun Go",
+          "image": "furniture/beds/3.jpg",
+          "price": 2300000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Bulu Premium"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Ukuran",
+              "options": [
+                [
+                  "90 x 200 (Single)",
+                  "180 x 200 (King)",
+                  "120 x 200 (Double)",
+                  "200 x 200 (Super King)",
+                  "160 x200 (Queen)"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": 4,
-      "title": "Meja dan Kursi Makan",
-      "image": "categories/4.png"
+      "category_id": 6,
+      "sub_category_id": "5580e739-3879-492e-97bb-c2a71cbe22fe",
+      "products": [
+        {
+          "id": "d945bd8d-5ceb-4425-8615-9697a95505b8",
+          "name": "Martel 2 Dinning Set",
+          "seller": "QIQI",
+          "image": "furniture/dinings/1.jpg",
+          "price": 3400000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kaca", "Besi Stainless Premiun"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Warna",
+              "options": [
+                "4 seat (Kayu Pinus)",
+                "6 seat (Kayu Mahogani)",
+                "8 seat (Kayu Jati)"
+              ]
+            },
+            {
+              "type": "Ukuran",
+              "options": [
+                "130 x 80 (4 seat)",
+                "170 x 90 (6 seat)",
+                "240 x 100 ( 8 seat)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "434f5fb6-bafe-4e75-8987-dd145b764d54",
+          "name": "Cape Breton Dinning Chair",
+          "seller": "GudC",
+          "image": "furniture/dinings/2.jpg",
+          "price": 2100000,
+          "size": "300x500x250",
+          "weight": "2 Kg",
+          "material": ["Kapuk", "Nilon", "Kulit Premium"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Color",
+              "options": [
+                "black",
+                "white",
+                "lime",
+                "orange",
+                "purple",
+                "blue",
+                "green"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3194e470-546e-4507-8bd4-3f9ea80eab6d",
+          "name": "Harlan Glass Dining Tabel",
+          "seller": "YIQI",
+          "image": "furniture/dinings/3.jpg",
+          "price": 4300000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kaca", "Kayu Mini Premium"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Warna",
+              "options": [
+                "4 seat (Kayu Pinus)",
+                "6 seat (Kayu Mahogani)",
+                "8 seat (Kayu Jati)"
+              ]
+            },
+            {
+              "type": "Ukuran",
+              "options": [
+                "130 x 80 (4 seat)",
+                "170 x 90 (6 seat)",
+                "240 x 100 ( 8 seat)"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": 5,
-      "title": "Coffee Table",
-      "image": "categories/5.png"
+      "category_id": 6,
+      "sub_category_id": "c145d429-38e6-4296-8333-441241058c59",
+      "products": [
+        {
+          "id": "d7c47720-31fa-487e-ba89-33d0fb9735f2",
+          "name": "Otis Coffee Table",
+          "seller": "Kyo",
+          "image": "furniture/coffee_tables/1.jpg",
+          "price": 2000000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Akrilik Putih Panjang"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Color",
+              "options": [
+                "black",
+                "white",
+                "lime",
+                "orange",
+                "purple",
+                "blue",
+                "green"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "25c2cf79-fd46-40fa-bb86-c0f4cdb9a489",
+          "name": "Piemonte Coffee Table",
+          "seller": "Jon Ham",
+          "image": "furniture/coffee_tables/2.jpg",
+          "price": 3300000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Color",
+              "options": [
+                "black",
+                "white",
+                "lime",
+                "orange",
+                "purple",
+                "blue",
+                "green"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "8c27b458-4505-4206-bbe2-3a7e17579990",
+          "name": "Elliot Coffee Table",
+          "seller": "Kyo",
+          "image": "furniture/coffee_tables/3.jpg",
+          "price": 2000000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Color",
+              "options": [
+                "black",
+                "white",
+                "lime",
+                "orange",
+                "purple",
+                "blue",
+                "green"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": 6,
-      "title": "Credenza",
-      "image": "categories/6.png"
+      "category_id": 6,
+      "sub_category_id": "d08a4e50-061d-495c-bcee-fb02cc32257f",
+      "products": [
+        {
+          "id": "8c90b4f1-aa9f-4a42-80ed-44979f64a413",
+          "name": "Tabitha Credenza",
+          "seller": "BGS",
+          "image": "furniture/credenza/1.jpg",
+          "price": 1200000,
+          "size": "300x500x250",
+          "weight": "4 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c28106a3-70ab-457b-9167-0e11d5886bba",
+          "name": "Rima Credenza",
+          "seller": "GGS",
+          "image": "furniture/credenza/2.jpg",
+          "price": 2200000,
+          "size": "300x500x250",
+          "weight": "6 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "debee6c9-5a08-4db8-af82-a77c39be2f56",
+          "name": "Clara Low Credenza",
+          "seller": "Sun Go",
+          "image": "furniture/credenza/3.jpg",
+          "price": 4500000,
+          "size": "300x500x250",
+          "weight": "6 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": 7,
-      "title": "Meja Rias",
-      "image": "categories/7.png"
+      "category_id": 6,
+      "sub_category_id": "8e652f76-8a0f-4af6-8994-a7d4226d5001",
+      "products": [
+        {
+          "id": "f890d6cb-253e-4e14-9d1a-1d18283aa8d0",
+          "name": "Ellise Vanity And Stool Set",
+          "seller": "PRS",
+          "image": "furniture/dressing/1.jpg",
+          "price": 3300000,
+          "size": "300x500x250",
+          "weight": "4 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan", "Kaca"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "14c05620-3a34-4792-9094-b9aa931e76f0",
+          "name": "Marte Vanity",
+          "seller": "BTT",
+          "image": "furniture/dressing/2.jpg",
+          "price": 4300000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan", "Kaca"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bf838527-fc4d-426a-9cbb-fd09fd7c0af0",
+          "name": "Composed and Stool Set",
+          "seller": "PST",
+          "image": "furniture/dressing/3.jpg",
+          "price": 3200000,
+          "size": "300x500x250",
+          "weight": "2,5 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan", "Kaca"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": 8,
-      "title": "Stool",
-      "image": "categories/8.png"
+      "category_id": 6,
+      "sub_category_id": "eb75a09c-4a5f-479e-a16b-f5854e2a9f5b",
+      "products": [
+        {
+          "id": "65f6615c-8f9b-472f-86d7-709cb1303862",
+          "name": "Dia Stool",
+          "seller": "Equaner",
+          "image": "furniture/stools/1.jpg",
+          "price": 550000,
+          "size": "300x500x250",
+          "weight": "6 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "9b6ac32c-a605-46e5-be15-d52de9bc11bf",
+          "name": "Octo Stool",
+          "seller": "HobiKayu",
+          "image": "furniture/stools/2.jpg",
+          "price": 550000,
+          "size": "300x500x250",
+          "weight": "6 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "3284e4e1-7507-447a-b773-0dd101a9b768",
+          "name": "Yello U-Foot Stool",
+          "seller": "Queen",
+          "image": "furniture/stools/3.jpg",
+          "price": 550000,
+          "size": "300x500x250",
+          "weight": "3 Kg",
+          "material": ["Kayu", "Besi Stainless Ringan"],
+          "style": "Industrial",
+          "condition": "Butuh Perakitan (Basic)",
+          "shape": "Tight",
+          "variations": [
+            {
+              "type": "Texture",
+              "options": [
+                "Kayu Meranti",
+                "Kayu Kamper",
+                "Kayu Jati",
+                "Kayu Pins"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

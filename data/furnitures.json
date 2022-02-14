@@ -107,13 +107,11 @@
             {
               "type": "Ukuran",
               "options": [
-                [
-                  "90 x 200 (Single)",
-                  "180 x 200 (King)",
-                  "120 x 200 (Double)",
-                  "200 x 200 (Super King)",
-                  "160 x200 (Queen)"
-                ]
+                "90 x 200 (Single)",
+                "180 x 200 (King)",
+                "120 x 200 (Double)",
+                "200 x 200 (Super King)",
+                "160 x200 (Queen)"
               ]
             }
           ]
@@ -134,13 +132,11 @@
             {
               "type": "Ukuran",
               "options": [
-                [
-                  "90 x 200 (Single)",
-                  "180 x 200 (King)",
-                  "120 x 200 (Double)",
-                  "200 x 200 (Super King)",
-                  "160 x200 (Queen)"
-                ]
+                "90 x 200 (Single)",
+                "180 x 200 (King)",
+                "120 x 200 (Double)",
+                "200 x 200 (Super King)",
+                "160 x200 (Queen)"
               ]
             }
           ]
@@ -161,13 +157,11 @@
             {
               "type": "Ukuran",
               "options": [
-                [
-                  "90 x 200 (Single)",
-                  "180 x 200 (King)",
-                  "120 x 200 (Double)",
-                  "200 x 200 (Super King)",
-                  "160 x200 (Queen)"
-                ]
+                "90 x 200 (Single)",
+                "180 x 200 (King)",
+                "120 x 200 (Double)",
+                "200 x 200 (Super King)",
+                "160 x200 (Queen)"
               ]
             }
           ]
@@ -194,13 +188,11 @@
             {
               "type": "Ukuran",
               "options": [
-                [
-                  "90 x 200 (Single)",
-                  "180 x 200 (King)",
-                  "120 x 200 (Double)",
-                  "200 x 200 (Super King)",
-                  "160 x200 (Queen)"
-                ]
+                "90 x 200 (Single)",
+                "180 x 200 (King)",
+                "120 x 200 (Double)",
+                "200 x 200 (Super King)",
+                "160 x200 (Queen)"
               ]
             }
           ]
@@ -221,13 +213,11 @@
             {
               "type": "Ukuran",
               "options": [
-                [
-                  "90 x 200 (Single)",
-                  "180 x 200 (King)",
-                  "120 x 200 (Double)",
-                  "200 x 200 (Super King)",
-                  "160 x200 (Queen)"
-                ]
+                "90 x 200 (Single)",
+                "180 x 200 (King)",
+                "120 x 200 (Double)",
+                "200 x 200 (Super King)",
+                "160 x200 (Queen)"
               ]
             }
           ]
@@ -248,13 +238,11 @@
             {
               "type": "Ukuran",
               "options": [
-                [
-                  "90 x 200 (Single)",
-                  "180 x 200 (King)",
-                  "120 x 200 (Double)",
-                  "200 x 200 (Super King)",
-                  "160 x200 (Queen)"
-                ]
+                "90 x 200 (Single)",
+                "180 x 200 (King)",
+                "120 x 200 (Double)",
+                "200 x 200 (Super King)",
+                "160 x200 (Queen)"
               ]
             }
           ]
@@ -463,10 +451,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]
@@ -487,10 +475,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]
@@ -511,10 +499,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]
@@ -541,10 +529,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]
@@ -565,10 +553,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]
@@ -589,10 +577,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]
@@ -619,10 +607,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]
@@ -643,10 +631,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]
@@ -667,10 +655,10 @@
             {
               "type": "Texture",
               "options": [
-                "Kayu Meranti",
-                "Kayu Kamper",
-                "Kayu Jati",
-                "Kayu Pins"
+                "Kayu Meranti#wood_texture/1.jpg",
+                "Kayu Kamper#wood_texture/2.jpg",
+                "Kayu Jati#wood_texture/3.jpg",
+                "Kayu Pinus#wood_texture/4.jpg"
               ]
             }
           ]

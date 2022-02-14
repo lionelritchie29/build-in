@@ -12,7 +12,7 @@ export default function SubCategoryPage({ category }) {
         {category.sub_categories.map((sub) => (
           <li className='cursor-pointer' key={sub.id}>
             <Link
-              href={`/categories/${category.id}/subs/${sub.id}`}
+              href={`/categories/${category.id}/subs/${sub.id}/products`}
               passHref={true}>
               <div className='flex flex-col justify-center'>
                 <Image

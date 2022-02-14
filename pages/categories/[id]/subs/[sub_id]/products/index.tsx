@@ -1,21 +1,22 @@
 import { getSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import Layout from '../../../../components/shared/_layout';
-import accesories from '../../../../data/accesories.json';
-import architectures from '../../../../data/architectures.json';
-import furnitures from '../../../../data/furnitures.json';
-import interiors from '../../../../data/interiors.json';
-import materials from '../../../../data/materials.json';
-import others from '../../../../data/others.json';
-import categories from '../../../../data/categories.json';
+import Layout from '../../../../../../components/shared/_layout';
+import accesories from '../../../../../../data/accesories.json';
+import architectures from '../../../../../../data/architectures.json';
+import furnitures from '../../../../../../data/furnitures.json';
+import interiors from '../../../../../../data/interiors.json';
+import materials from '../../../../../../data/materials.json';
+import others from '../../../../../../data/others.json';
+import categories from '../../../../../../data/categories.json';
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatter } from '../../../../lib/helper';
+import { formatter } from '../../../../../../lib/helper';
 import { Else, If, Then } from 'react-if';
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 export default function ProductListPage({ data, category }) {
-  console.log({ data, category });
+  const router = useRouter();
+  console.log(router);
 
   const renderPrice = (price: string | number) => {
     if (typeof price === 'string') {
@@ -91,7 +92,9 @@ export default function ProductListPage({ data, category }) {
                     <Link href='/'>View Portfolio</Link>
                   </Then>
                   <Else>
-                    <Link href='/'>View Detail</Link>
+                    <Link href={`${router.asPath}/${product.id}`}>
+                      View Detail
+                    </Link>
                   </Else>
                 </If>
               </button>
@@ -127,7 +130,34 @@ export async function getServerSideProps(context) {
   const data = rawData.find(
     (d) => d.category_id == cat_id && d.sub_category_id == sub_id,
   );
+
+  if (!data) {
+    console.log(
+      'Raw data with category id ' +
+        cat_id +
+        ' and sub id ' +
+        sub_id +
+        ' not found',
+    );
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
   const category = categories.categories.find((cat) => cat.id == cat_id);
+
+  if (!category) {
+    console.log('Category id ' + cat_id + ' not found');
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: { session, data, category },

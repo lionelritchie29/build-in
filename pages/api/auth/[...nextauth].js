@@ -9,6 +9,10 @@ export default NextAuth({
   },
   providers: [
     CredentialsProvider({
+      credentials: {
+        email: { label: 'Email', type: 'text', placeholder: 'you@example.com' },
+        password: { label: 'Password', type: 'password' },
+      },
       async authorize(credentials, req) {
         const client = await clientPromise;
         const users = await client.db().collection('users');

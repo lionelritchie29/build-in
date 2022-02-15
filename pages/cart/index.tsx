@@ -10,6 +10,7 @@ import chatIcon from '../../public/images/chat.png';
 
 import categories from '../../data/categories.json';
 import BottomNav from '../../components/shared/_BottomNav';
+import { Else, If, Then } from 'react-if';
 
 export default function CartPage() {
   const [carts, setCarts] = useState([]);
@@ -68,19 +69,26 @@ export default function CartPage() {
 
   return (
     <Layout title='Bu!ld-In'>
-      <div className='flex justify-between mb-4 mt-2'>
-        <div className='w-1/2 flex items-center'>
-          <input type='checkbox' onChange={checkAll} />
-          <span className='block ml-1'>Select All</span>
-        </div>
+      <If condition={!carts.length}>
+        <Then>
+          <div className='text-center'>Your cart is empty</div>
+        </Then>
+        <Else>
+          <div className='flex justify-between mb-4 mt-2'>
+            <div className='w-1/2 flex items-center'>
+              <input type='checkbox' onChange={checkAll} />
+              <span className='block ml-1'>Select All</span>
+            </div>
 
-        <button
-          type='button'
-          onClick={() => clear()}
-          className='justify-center inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2'>
-          Clear
-        </button>
-      </div>
+            <button
+              type='button'
+              onClick={() => clear()}
+              className='justify-center inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-offset-2'>
+              Clear
+            </button>
+          </div>
+        </Else>
+      </If>
 
       <ul className='grid grid-cols-1 gap-4'>
         {carts.map((cart, idx) => {

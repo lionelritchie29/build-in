@@ -16,7 +16,6 @@ import { useRouter } from 'next/router';
 
 export default function ProductListPage({ data, category }) {
   const router = useRouter();
-  console.log(router);
 
   const renderPrice = (price: string | number) => {
     if (typeof price === 'string') {
@@ -27,6 +26,15 @@ export default function ProductListPage({ data, category }) {
     } else {
       return formatter.format(price);
     }
+  };
+
+  const getHref = (product: any) => {
+    return product.creator
+      ? `${router.asPath.replace('products', '')}portfolios/${
+          category.sub_categories.find((c) => c.id == data.sub_category_id)
+            ?.type
+        }`
+      : `${router.asPath}/${product.id}`;
   };
 
   return (
@@ -81,23 +89,15 @@ export default function ProductListPage({ data, category }) {
                 </Then>
               </If>
 
-              <button
-                className={classNames(
-                  'inline-flex mt-1 w-full justify-center items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2',
-                  { 'mt-2': !product.seller || product.creator },
-                )}>
-                <If condition={product.creator}>
-                  <Then>
-                    {/* Creator */}
-                    <Link href='/'>View Portfolio</Link>
-                  </Then>
-                  <Else>
-                    <Link href={`${router.asPath}/${product.id}`}>
-                      View Detail
-                    </Link>
-                  </Else>
-                </If>
-              </button>
+              <Link href={getHref(product)} passHref={true}>
+                <button
+                  className={classNames(
+                    'inline-flex mt-1 w-full justify-center items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2',
+                    { 'mt-2': !product.seller || product.creator },
+                  )}>
+                  {product.creator ? 'View Portfolio' : 'View Detail'}
+                </button>
+              </Link>
             </div>
           </li>
         ))}

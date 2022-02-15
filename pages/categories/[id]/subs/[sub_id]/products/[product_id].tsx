@@ -12,8 +12,6 @@ import chatIcon from '../../../../../../public/images/chat.png';
 import BottomNav from '../../../../../../components/shared/_BottomNav';
 
 export default function ProductDetailPage({ product }) {
-  console.log(product);
-
   const canDisplay = (key: string): boolean => {
     if (key.toLowerCase() === 'price' && product.services) return false;
 

@@ -1,0 +1,94 @@
+{
+  "portfolios": [
+    {
+      "id": "f8898e47-4670-44f5-b9c6-0f293c2b9cde",
+      "name": "Bagas Prakarsa",
+      "image": "",
+      "project_count": 124,
+      "est": 2017,
+      "education": "UPH 2011 - 2014",
+      "member_since": "June 2017",
+      "type": "architecture_commercial",
+      "projects": [
+        {
+          "id": "e94194a9-029e-4b5e-aa74-ff3b8095d47b",
+          "name": "Una Tower",
+          "image": "architecture/commercials/1.jpg",
+          "architect": "Sun Go",
+          "project_name": "KK1",
+          "location": "Kebon Jeruk",
+          "harga": 25999000,
+          "lb_lt": "99/100",
+          "facilities": "13 Ruang, 3 WC, 1 Dapur, 1 Garasi, RoofTop"
+        },
+        {
+          "id": "5cd76b9e-2354-4c30-940f-6ad4dd7957bd",
+          "name": "Hotel Bandara Kertadjadi",
+          "image": "architecture/commercials/2.jpg",
+          "architect": "Jon Ham",
+          "project_name": "LED42",
+          "location": "Kebon Sirih",
+          "harga": 35999000,
+          "lb_lt": "99/100",
+          "facilities": "21 Kamar,17 WC,1 Dapur,2 Garasi,Kolam Renang."
+        },
+        {
+          "id": "bcaad3e2-85aa-4395-b540-a32e5a095fe6",
+          "name": "Riung Tower",
+          "image": "architecture/commercials/3.jpg",
+          "architect": "Bagas Prakarsa",
+          "project_name": "BDR42",
+          "location": "Menteng",
+          "harga": 141999000,
+          "lb_lt": "99/100",
+          "facilities": "2 Kamar,1 WC,1 Dapur,2 Garasi,Ruang Keluarga,Kolam Mini."
+        }
+      ]
+    },
+    {
+      "id": "b13ec88e-2d2c-4854-840a-9607c31069a3",
+      "name": "Sun Go",
+      "image": "",
+      "project_count": 54,
+      "est": 2014,
+      "education": "UGM 2009 - 2013",
+      "member_since": "June 2014",
+      "type": "architecture_residential",
+      "projects": [
+        {
+          "id": "5506f8cd-9d35-4acb-9e06-317312ee2d00",
+          "name": "Fankwer House",
+          "image": "architecture/residentials/1.jpg",
+          "architect": "Sun Go",
+          "project_name": "MMR43",
+          "location": "Gandaria City",
+          "harga": 15999000,
+          "lb_lt": "99/100",
+          "facilities": "2 Kamar,1 WC,1 Dapur,2 Garasi,Ruang Keluarga,Kolam Mini."
+        },
+        {
+          "id": "6b9b5c30-b88e-4c72-9eda-de4543354b04",
+          "name": "River Park",
+          "image": "architecture/residentials/2.jpg",
+          "architect": "Bagas Prakarsa",
+          "project_name": "LAX23",
+          "location": "Serpong",
+          "harga": 21999000,
+          "lb_lt": "99/100",
+          "facilities": "2 Kamar,2 WC,1 Dapur,2 Garasi,Ruang Keluarga,Kolam Pribadi."
+        },
+        {
+          "id": "a8fe367e-c8d8-477c-9796-6b8a1a2e7e73",
+          "name": "Duo Courts Villa",
+          "image": "architecture/residentials/3.jpg",
+          "architect": "Jon Ham",
+          "project_name": "BDT23",
+          "location": "Bekasi",
+          "harga": 11999000,
+          "lb_lt": "99/100",
+          "facilities": "2 Kamar,1 WC,1 Dapur,2 Garasi,Ruang Keluarga"
+        }
+      ]
+    }
+  ]
+}

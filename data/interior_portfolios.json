@@ -1,0 +1,229 @@
+{
+  "portfolios": [
+    {
+      "id": "d38815ad-349b-4577-995b-2f7949693122",
+      "name": "Bagas Prakarsa",
+      "image": "",
+      "project_count": 214,
+      "est": 2016,
+      "education": "UNTAR 2017 - 2021",
+      "member_since": "June 2016",
+      "type": "interior_office",
+      "projects": [
+        {
+          "id": "2626df06-8d3c-4050-ba24-fb86fa45d40e",
+          "name": "Nusantara Design",
+          "image": "interior/office/1.jpg",
+          "architect": "Bagas Prakarsa - MK37",
+          "header": "Ruang Office",
+          "harga": 120500000,
+          "area": "900m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2019 - 5 Desember 2019"
+        },
+        {
+          "id": "98cdbee2-6349-4eb2-8ed7-6dd08cb0f2dc",
+          "name": "Sarana Steel",
+          "image": "interior/office/2.jpg",
+          "architect": "Jon Ham - MK37",
+          "header": "Ruang Office",
+          "harga": 120500000,
+          "area": "900m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2019 - 5 Desember 2019"
+        },
+        {
+          "id": "e3a30f26-c0cd-4616-a110-11fb615fec3b",
+          "name": "Accenture",
+          "image": "interior/office/3.jpg",
+          "architect": "Sun Go - MK37",
+          "header": "Ruang Office",
+          "harga": 120500000,
+          "area": "970m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2019 - 5 Desember 2019"
+        }
+      ]
+    },
+    {
+      "id": "e67ecc9c-e0a0-40ff-bbdc-7a83c1321659",
+      "name": "Bagas Prakarsa",
+      "image": "",
+      "project_count": 214,
+      "est": 2016,
+      "education": "UNTAR 2017 - 2021",
+      "member_since": "June 2016",
+      "type": "interior_residential",
+      "projects": [
+        {
+          "id": "dc6dd7fe-1a63-48a2-a9d6-8d76e6d4d6df",
+          "name": "Ms's Residence",
+          "image": "interior/residentials/1.jpg",
+          "architect": "Bagas Prakarsa - MK37",
+          "header": "Ruang Keluarga",
+          "harga": 120500000,
+          "area": "900m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2019 - 5 Desember 2019"
+        },
+        {
+          "id": "fa66a254-7684-4aee-b615-67c2cdb75a7f",
+          "name": "Four Season Fort Lauderdale Penthouse",
+          "image": "interior/residentials/2.jpg",
+          "architect": "Jon Ham - MK37",
+          "header": "Ruang Keluarga",
+          "harga": 120500000,
+          "area": "900m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2018 - 5 Desember 2018"
+        },
+        {
+          "id": "f8316b35-ae2e-4c32-a9a0-4f41df187158",
+          "name": "Grosvenor House",
+          "image": "interior/residentials/3.jpg",
+          "architect": "Sun Go - MK37",
+          "header": "Ruang Keluarga",
+          "harga": 130500000,
+          "area": "900m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2018 - 5 Desember 2018"
+        }
+      ]
+    },
+    {
+      "id": "e76955c7-2d1d-4908-b286-d637b637ace6",
+      "name": "Bagas Prakarsa",
+      "image": "",
+      "project_count": 200,
+      "est": 2015,
+      "education": "UNTAR 2017 - 2021",
+      "member_since": "June 2016",
+      "type": "interior_retail",
+      "projects": [
+        {
+          "id": "26fe1464-d9ba-4708-8db3-b53fd6f14037",
+          "name": "Canteen Retail",
+          "image": "interior/retails/1.jpg",
+          "architect": "Bagas Prakarsa - MK37",
+          "header": "Coffee Shop",
+          "harga": 75500000,
+          "area": "600m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2019 - 5 Desember 2019"
+        },
+        {
+          "id": "5d7ee063-fdb0-4e5a-ac8a-4e26edaeff37",
+          "name": "Retail Simp",
+          "image": "interior/retails/2.jpg",
+          "architect": "Jon Ham - MK37",
+          "header": "Canteen",
+          "harga": 75500000,
+          "area": "600m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2018 - 5 Desember 2018"
+        },
+        {
+          "id": "cf6b49a0-8e6d-40ac-9914-dea0ab37a22e",
+          "name": "Runway",
+          "image": "interior/retails/3.jpg",
+          "architect": "Sun Go - MK37",
+          "header": "Retail Store",
+          "harga": 75500000,
+          "area": "700m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2018 - 5 Desember 2018"
+        }
+      ]
+    },
+    {
+      "id": "29c448c2-df5e-409a-865d-ddc571489f97",
+      "name": "Bagas Prakarsa",
+      "image": "",
+      "project_count": 200,
+      "est": 2015,
+      "education": "UNTAR 2017 - 2021",
+      "member_since": "June 2016",
+      "type": "interior_hotel",
+      "projects": [
+        {
+          "id": "88af1b72-3937-4757-9b9d-c6abc0ad22f9",
+          "name": "Imperial Park Hotel",
+          "image": "interior/hotels/1.jpg",
+          "architect": "Bagas Prakarsa - MK37",
+          "header": "Hotel Lobby",
+          "harga": 178500000,
+          "area": "1300m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2019 - 5 Desember 2019"
+        },
+        {
+          "id": "e0dde339-d147-4da8-adda-4ee8a834e983",
+          "name": "Infinity Hotel",
+          "image": "interior/hotels/2.jpg",
+          "architect": "Jon Ham - MK37",
+          "header": "Hotel Lobby",
+          "harga": 175500000,
+          "area": "1300m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2018 - 5 Desember 2018"
+        },
+        {
+          "id": "11bbe063-25e8-481b-97d5-6b5a71395929",
+          "name": "Mercure Hotel",
+          "image": "interior/hotels/3.jpg",
+          "architect": "Sun Go - MK37",
+          "header": "Hotel Lobby",
+          "harga": 195500000,
+          "area": "1300m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2018 - 5 Desember 2018"
+        }
+      ]
+    },
+    {
+      "id": "58618b46-22eb-4133-948e-4839ae9e531e",
+      "name": "Bagas Prakarsa",
+      "image": "",
+      "project_count": 100,
+      "est": 2015,
+      "education": "UNTAR 2017 - 2021",
+      "member_since": "June 2016",
+      "type": "interior_merch",
+      "projects": [
+        {
+          "id": "2314a528-d33c-44d3-86a3-52760973efee",
+          "name": "Visual Merchandise",
+          "image": "interior/merchs/1.jpg",
+          "architect": "Bagas Prakarsa - MK37",
+          "header": "Merchandise Product",
+          "harga": 58500000,
+          "area": "400m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2019 - 5 Desember 2019"
+        },
+        {
+          "id": "825815aa-e148-40fb-ad9b-1e06f4a48b2b",
+          "name": "Bucket of Heaven",
+          "image": "interior/merchs/2.jpg",
+          "architect": "Bagas Prakarsa - MK37",
+          "header": "Merchandise Product",
+          "harga": 18500000,
+          "area": "200m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2018 - 5 Desember 2018"
+        },
+        {
+          "id": "f1def8b9-7a22-4e25-a1f1-009d921efa6d",
+          "name": "Wedding Props",
+          "image": "interior/merchs/3.jpg",
+          "architect": "Sun Go - MK37",
+          "header": "Merchandise Product",
+          "harga": 18500000,
+          "area": "200m sq",
+          "style": "Modern Industrial",
+          "period": "21 Februari 2018 - 5 Desember 2018"
+        }
+      ]
+    }
+  ]
+}

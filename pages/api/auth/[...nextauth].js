@@ -7,6 +7,18 @@ export default NextAuth({
   session: {
     jwt: true,
   },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token = { ...token, ...user, password: '' };
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.user = token;
+      return session;
+    },
+  },
   providers: [
     CredentialsProvider({
       credentials: {

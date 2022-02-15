@@ -6,7 +6,7 @@ import DatePicker from 'react-datepicker';
 import { useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-toastify';
-import { AuthService } from '../../services/AuthService';
+import { UsersService } from '../../services/UsersService';
 import { ApiResponse } from '../../models/ApiResponse';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -35,11 +35,11 @@ export default function Register() {
   const confirmPass = watch('cpassword');
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const authService = new AuthService();
+    const usersService = new UsersService();
     const payload = { ...data, dob: dob.toISOString().substring(0, 10) };
 
     setIsLoading(true);
-    const res = await toast.promise(authService.register(payload), {
+    const res = await toast.promise(usersService.register(payload), {
       pending: 'Processing your request...',
       success: {
         render({ data }: { data: ApiResponse<any> }) {

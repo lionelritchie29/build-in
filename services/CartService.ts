@@ -81,6 +81,14 @@ export class CartService {
     localStorage.setItem(CART_KEY, '[]');
   }
 
+  public static getTotal(): number {
+    const cart: CartItem[] = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
+    const total = cart.reduce((prev, curr) => {
+      return prev + curr.price;
+    }, 0);
+    return total;
+  }
+
   private static getType(
     categoryId: string | number,
   ):

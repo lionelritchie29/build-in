@@ -7,7 +7,7 @@ type Props = {
   links: {
     title: string;
     image?: StaticImageData;
-    href: string;
+    href?: string;
     text?: string;
     onClick?: () => void;
   }[];

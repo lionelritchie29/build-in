@@ -10,6 +10,7 @@ import { UsersService } from '../../services/UsersService';
 import { ApiResponse } from '../../models/ApiResponse';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { User } from '../../models/User';
 
 type Inputs = {
   name: string;
@@ -20,45 +21,71 @@ type Inputs = {
   cpassword: string;
 };
 
-export default function Register() {
+type Props = {
+  user: User;
+};
+
+export default function UpdateProfile({ user }: Props) {
   const router = useRouter();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
     reset,
   } = useForm<Inputs>();
 
-  const [dob, setDob] = useState(new Date());
+  const [dob, setDob] = useState(new Date(user.dob));
   const [isLoading, setIsLoading] = useState(false);
-  const confirmPass = watch('cpassword');
+  const [gender, setGender] = useState({
+    male: user.gender === 'male',
+    female: user.gender === 'female',
+  });
+  const [message, setMessage] = useState('');
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const usersService = new UsersService();
     const payload = { ...data, dob: dob.toISOString().substring(0, 10) };
 
+    if (payload.password) {
+      if (payload.password.length < 8) {
+        setMessage('Password should be at least 8 characters');
+        return;
+      } else if (!payload.cpassword) {
+        setMessage('Confirmation password must be filled');
+        return;
+      } else if (payload.password !== payload.cpassword) {
+        setMessage('Password confirmation does not match');
+        return;
+      }
+      setMessage('');
+    }
+
+    console.log(payload);
+
     setIsLoading(true);
-    const res = await toast.promise(usersService.register(payload), {
+    const res = await toast.promise(usersService.update(user._id, payload), {
       pending: 'Processing your request...',
       success: {
         render({ data }: { data: ApiResponse<any> }) {
           if (data.success) reset();
-          return `${data.success ? 'Register Success!' : data.message}`;
+          return `${data.success ? 'Update success!' : data.message}`;
         },
       },
       error: 'Ups, something is wrong. Please contact your developer.',
     });
 
     if (res.success) {
-      router.push('/auth/login');
+      router.push('/profile');
     } else {
       setIsLoading(false);
     }
   };
 
   return (
-    <Layout title='Register'>
+    <Layout title='Bu!ld-In'>
+      <h1 className='mt-2 mb-4 font-semibold text-xl text-center'>
+        Ubah Profile
+      </h1>
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-3'>
         <div>
           <label className='block text-sm font-medium text-gray-700'>
@@ -72,6 +99,7 @@ export default function Register() {
                 'border-gray-300',
               )}
               {...register('name', { required: true })}
+              defaultValue={user.name}
               placeholder='John Doe'
             />
             {errors.name && (
@@ -102,6 +130,7 @@ export default function Register() {
                 'border-gray-300',
               )}
               {...register('email', { required: true })}
+              defaultValue={user.email}
               placeholder='you@example.com'
             />
             {errors.email && (
@@ -132,6 +161,7 @@ export default function Register() {
                 'border-gray-300',
               )}
               {...register('phone', { required: true })}
+              defaultValue={user.phone}
               placeholder='08xx xxxx xxxx'
             />
             {errors.phone && (
@@ -159,8 +189,9 @@ export default function Register() {
               <input
                 name='gender'
                 type='radio'
-                value='male'
+                defaultValue='male'
                 {...register('gender', { required: true })}
+                checked={gender.male}
               />
               <span className='ml-1'>Male</span>
             </div>
@@ -169,8 +200,9 @@ export default function Register() {
               <input
                 name='gender'
                 type='radio'
-                value='female'
+                defaultValue='female'
                 {...register('gender', { required: true })}
+                checked={gender.female}
               />
               <span className='ml-1'>Female</span>
             </div>
@@ -206,28 +238,10 @@ export default function Register() {
                 'block w-full py-2 pl-2 pr-10 border focus:outline-none sm:text-sm rounded-md',
                 'border-gray-300',
               )}
-              {...register('password', { required: true, minLength: 8 })}
+              {...register('password')}
               placeholder='Password'
             />
-            {errors.password && (
-              <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
-                <ExclamationCircleIcon
-                  className='h-5 w-5 text-red-500'
-                  aria-hidden='true'
-                />
-              </div>
-            )}
           </div>
-          {errors.password?.type === 'required' && (
-            <p className='text-sm text-red-600' id='email-error'>
-              Password is required
-            </p>
-          )}
-          {errors.password?.type === 'minLength' && (
-            <p className='  text-sm text-red-600' id='email-error'>
-              Password should be at least 8 characters
-            </p>
-          )}
         </div>
 
         <div>
@@ -241,25 +255,10 @@ export default function Register() {
                 'block w-full py-2 pl-2 pr-10 border focus:outline-none sm:text-sm rounded-md',
                 'border-gray-300',
               )}
-              {...register('cpassword', {
-                validate: (val) => val === confirmPass,
-              })}
+              {...register('cpassword')}
               placeholder='Confirm Password'
             />
-            {errors.cpassword && (
-              <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
-                <ExclamationCircleIcon
-                  className='h-5 w-5 text-red-500'
-                  aria-hidden='true'
-                />
-              </div>
-            )}
           </div>
-          {errors.cpassword && (
-            <p className='  text-sm text-red-600' id='email-error'>
-              Password confirmation does not match
-            </p>
-          )}
         </div>
 
         <div className='mt-4'>
@@ -275,6 +274,7 @@ export default function Register() {
             )}>
             Submit
           </button>
+          {message && <small className='text-red-500'>{message}</small>}
         </div>
       </form>
     </Layout>
@@ -283,7 +283,20 @@ export default function Register() {
 
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req });
-  if (session) {
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  const usersService = new UsersService();
+  const id = (session.user as User)._id;
+  const result = await usersService.get(id);
+
+  if (!result.success) {
     return {
       redirect: {
         destination: '/home',
@@ -291,7 +304,8 @@ export async function getServerSideProps(context) {
       },
     };
   }
+
   return {
-    props: { session },
+    props: { session, user: { ...result.data, password: '' } },
   };
 }

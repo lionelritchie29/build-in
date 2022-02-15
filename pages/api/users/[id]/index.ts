@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import clientPromise from '../../../lib/mongodb';
+import clientPromise from '../../../../lib/mongodb';
 
 async function handler(req, res) {
   if (req.method === 'GET') {

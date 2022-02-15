@@ -1,6 +1,7 @@
 import { getSession, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Layout from '../../components/shared/_layout';
 import { capitalizeFirstLetter } from '../../lib/helper';
 import { User } from '../../models/User';
@@ -26,7 +27,9 @@ const monthNames = [
 ];
 
 export default function ProfilePage({ user }: Props) {
+  const router = useRouter();
   const dob = user.dob.split('-');
+
   return (
     <Layout title='Profile' showMenu={true}>
       <div className='mt-3'>
@@ -71,7 +74,7 @@ export default function ProfilePage({ user }: Props) {
       </ul>
 
       <div className='mt-4'>
-        <Link href='/' passHref={true}>
+        <Link href={`${router.asPath}/update`} passHref={true}>
           <button
             type='button'
             className='w-full justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2'>

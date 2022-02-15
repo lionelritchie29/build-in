@@ -9,6 +9,7 @@ type Props = {
     image?: StaticImageData;
     href: string;
     text?: string;
+    onClick?: () => void;
   }[];
 };
 
@@ -24,7 +25,7 @@ export default function BottomNav({ links }: Props) {
     <ul
       style={size.width > 448 ? centerFixed : {}}
       className={classNames(
-        'fixed mx-auto bottom-0 bg-primary w-full grid grid-cols-3 gap-x-2 divide-x divide-gray-500',
+        `fixed mx-auto bottom-0 bg-primary w-full grid grid-cols-${links.length} gap-x-2 divide-x divide-gray-500`,
         { 'max-w-md': size.width > 448 },
         { 'left-0': size.width <= 448 },
       )}>
@@ -32,9 +33,9 @@ export default function BottomNav({ links }: Props) {
         <li
           className='cursor pointer flex items-center justify-center'
           key={idx}>
-          <Link href={link.href} passHref={true}>
-            <div className='cursor-pointer'>
-              {link.image ? (
+          {link.image ? (
+            <Link href={link.href} passHref={true}>
+              <div className='cursor-pointer'>
                 <Image
                   width={50}
                   className='object-contain'
@@ -42,13 +43,15 @@ export default function BottomNav({ links }: Props) {
                   src={link.image}
                   alt={link.title}
                 />
-              ) : (
-                <span className='block text-white text-xl font-semibold'>
-                  {link.text}
-                </span>
-              )}
-            </div>
-          </Link>
+              </div>
+            </Link>
+          ) : (
+            <button
+              onClick={() => link.onClick()}
+              className='cursor-pointer block text-white text-xl font-semibold'>
+              {link.text}
+            </button>
+          )}
         </li>
       ))}
     </ul>

@@ -10,8 +10,14 @@ import { capitalizeFirstLetter, formatter } from '../../../../../../lib/helper';
 import cartIcon from '../../../../../../public/images/cart.png';
 import chatIcon from '../../../../../../public/images/chat.png';
 import BottomNav from '../../../../../../components/shared/_BottomNav';
+import { CartService } from '../../../../../../services/CartService';
+import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 
 export default function ProductDetailPage({ product }) {
+  const router = useRouter();
+  const { id: cat_id, sub_id, product_id } = router.query;
+
   const canDisplay = (key: string): boolean => {
     if (key.toLowerCase() === 'price' && product.services) return false;
 
@@ -64,6 +70,24 @@ export default function ProductDetailPage({ product }) {
       title: '',
       href: '/home',
       text: 'Order',
+      onClick: () => {
+        const catId = cat_id as string;
+        const subId = sub_id as string;
+        const prodId = product_id as string;
+        const price: number =
+          typeof product.price === 'string'
+            ? parseInt(product.price.split('-')[0])
+            : product.price;
+        CartService.add(
+          catId,
+          subId,
+          prodId,
+          product.image,
+          price,
+          product.name,
+        );
+        toast.success('Product succesfully added to the cart!');
+      },
     },
   ];
 

@@ -6,13 +6,15 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { signOut } from 'next-auth/react';
 import { toast } from 'react-toastify';
+import cartImg from '../../public/images/cart.png';
 
 type Props = {
   title?: string;
   showMenu: boolean;
+  showCart: boolean;
 };
 
-export default function Navbar({ title, showMenu }: Props) {
+export default function Navbar({ title, showMenu, showCart }: Props) {
   const router = useRouter();
   const [sideNavOpen, setSideNavOpen] = useState(false);
 
@@ -76,7 +78,14 @@ export default function Navbar({ title, showMenu }: Props) {
         <span className='text-xl font-semibold'>{title}</span>
       </div>
 
-      <div>
+      <div className='flex'>
+        {showCart && (
+          <div className='cursor-pointer'>
+            <Link href='/cart' passHref={true}>
+              <Image src={cartImg} alt='Cart' width={55} height={50}></Image>
+            </Link>
+          </div>
+        )}
         <Image src={logo} alt='logo' width={55} height={50}></Image>
       </div>
 

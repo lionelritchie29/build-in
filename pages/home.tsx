@@ -27,7 +27,7 @@ export default function Home() {
   ];
 
   return (
-    <Layout showMenu={true} title='Bu!ld-In'>
+    <Layout showMenu={true} title='Bu!ld-In' showCart={true}>
       Welcome, {session.data.user.name}
       <BottomNav links={bottomLinks} />
     </Layout>

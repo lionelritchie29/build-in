@@ -12,9 +12,13 @@ import {
   formatter,
 } from '../../../../../../../lib/helper';
 import BottomNav from '../../../../../../../components/shared/_BottomNav';
+import { useRouter } from 'next/router';
+import { CartService } from '../../../../../../../services/CartService';
+import { toast } from 'react-toastify';
 
 export default function PortfolioDetailPage({ project, subCategory }) {
-  console.log(project);
+  const router = useRouter();
+  const { id: catId, sub_id, project_id } = router.query;
 
   const canDisplay = (key: string): boolean => {
     if (
@@ -62,6 +66,20 @@ export default function PortfolioDetailPage({ project, subCategory }) {
       title: '',
       href: '/home',
       text: 'Order',
+      onClick: () => {
+        const categoryId = catId as string;
+        const subId = sub_id as string;
+        const prodId = project_id as string;
+        CartService.add(
+          categoryId,
+          subId,
+          prodId,
+          project.image,
+          project.harga,
+          project.name,
+        );
+        toast.success('Product succesfully added to the cart!');
+      },
     },
   ];
 

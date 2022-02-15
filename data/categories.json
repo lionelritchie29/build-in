@@ -8,37 +8,44 @@
         {
           "id": "491c283c-4800-4899-8d15-8f16c5178d5f",
           "title": "Sarung Bantal & Cusion",
-          "image": "accesories/1.png"
+          "image": "accesories/1.png",
+          "type": ""
         },
         {
           "id": "2c50460c-2e04-4323-a440-2b1ff026304a",
           "title": "Seprei & Selimut",
-          "image": "accesories/2.png"
+          "image": "accesories/2.png",
+          "type": ""
         },
         {
           "id": "ec281d25-100d-4415-878a-1c54c74dd12d",
           "title": "Lampu",
-          "image": "accesories/3.png"
+          "image": "accesories/3.png",
+          "type": ""
         },
         {
           "id": "4bfeba57-b894-4d63-96ff-5bdeab072611",
           "title": "Pajangan",
-          "image": "accesories/4.png"
+          "image": "accesories/4.png",
+          "type": ""
         },
         {
           "id": "3f7ad90a-c8ce-4fa7-ae40-22519e297145",
           "title": "Karpet",
-          "image": "accesories/5.png"
+          "image": "accesories/5.png",
+          "type": ""
         },
         {
           "id": "7cc67c42-e39b-4e97-bc0b-6bed6cfe6e8d",
           "title": "Cermin",
-          "image": "accesories/6.png"
+          "image": "accesories/6.png",
+          "type": ""
         },
         {
           "id": "d612b668-e5d6-4470-b5c4-06de666a37aa",
           "title": "Peralatan Makan & Minum",
-          "image": "accesories/7.png"
+          "image": "accesories/7.png",
+          "type": ""
         }
       ]
     },
@@ -69,17 +76,20 @@
         {
           "id": "4582eea1-56bb-4ff2-9a6f-23dd071168b4",
           "title": "Pemasangan",
-          "image": "others/1.png"
+          "image": "others/1.png",
+          "type": ""
         },
         {
           "id": "82fc236a-a4fe-4a72-af71-e16eac1510ea",
           "title": "Taman",
-          "image": "others/2.png"
+          "image": "others/2.png",
+          "type": ""
         },
         {
           "id": "e113698a-18fc-46e2-b6a7-91b778894b40",
           "title": "Service",
-          "image": "others/3.png"
+          "image": "others/3.png",
+          "type": ""
         }
       ]
     },
@@ -128,12 +138,14 @@
         {
           "id": "75d6ad9e-82fa-4699-9746-2f3ba21576be",
           "title": "Dinding",
-          "image": "material/1.png"
+          "image": "material/1.png",
+          "type": ""
         },
         {
           "id": "591639d0-5ca7-4e6b-bc89-8d5448f6029e",
           "title": "Lantai",
-          "image": "material/2.png"
+          "image": "material/2.png",
+          "type": ""
         }
       ]
     },
@@ -145,42 +157,50 @@
         {
           "id": "cfecbdda-e9aa-4407-b958-94b5996b76c4",
           "title": "Chair & Sofa",
-          "image": "furniture/1.png"
+          "image": "furniture/1.png",
+          "type": ""
         },
         {
           "id": "6db47b11-999f-4772-ad06-03d64ca80352",
           "title": "Tempat Tidur",
-          "image": "furniture/2.png"
+          "image": "furniture/2.png",
+          "type": ""
         },
         {
           "id": "93ed3df1-f085-494f-9c8c-315e2c6db7ac",
           "title": "Kasur",
-          "image": "furniture/3.png"
+          "image": "furniture/3.png",
+          "type": ""
         },
         {
           "id": "5580e739-3879-492e-97bb-c2a71cbe22fe",
           "title": "Meja dan Kursi Makan",
-          "image": "furniture/4.png"
+          "image": "furniture/4.png",
+          "type": ""
         },
         {
           "id": "c145d429-38e6-4296-8333-441241058c59",
           "title": "Coffee Table",
-          "image": "furniture/5.png"
+          "image": "furniture/5.png",
+          "type": ""
         },
         {
           "id": "d08a4e50-061d-495c-bcee-fb02cc32257f",
           "title": "Credenza",
-          "image": "furniture/6.png"
+          "image": "furniture/6.png",
+          "type": ""
         },
         {
           "id": "8e652f76-8a0f-4af6-8994-a7d4226d5001",
           "title": "Meja Rias",
-          "image": "furniture/7.png"
+          "image": "furniture/7.png",
+          "type": ""
         },
         {
           "id": "eb75a09c-4a5f-479e-a16b-f5854e2a9f5b",
           "title": "Stool",
-          "image": "furniture/8.png"
+          "image": "furniture/8.png",
+          "type": ""
         }
       ]
     }

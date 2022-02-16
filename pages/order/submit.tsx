@@ -1,4 +1,4 @@
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 import Layout from '../../components/shared/_layout';
 import { LocationMarkerIcon, ShoppingBagIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
@@ -6,24 +6,39 @@ import { CartService } from '../../services/CartService';
 import CartItemComponent from '../../components/CartItem';
 import { formatter } from '../../lib/helper';
 import Link from 'next/link';
-import { User } from '../../models/User';
 import { useRouter } from 'next/router';
+import { OrderService } from '../../services/OrderService';
+import { Shipping } from '../../models/Shipping';
+import Image from 'next/image';
+import { Payment } from '../../models/Payment';
+import { If, Then } from 'react-if';
 
 export default function OrderSubmitPage() {
   const [carts, setCarts] = useState([]);
-  const session = useSession();
-  const user = session.data.user as User;
   const router = useRouter();
+  const [shipping, setShipping] = useState<Shipping>({
+    desc: '',
+    type: '',
+    price: 0,
+  });
+  const [payment, setPayment] = useState<Payment>({ image: '', desc: '' });
+  const [containGoods, setContainGoods] = useState(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      setShipping(OrderService.getShipping());
+      setPayment(OrderService.getPayment());
+
       const crts = CartService.getAll();
-
       if (!crts.length) router.push('/home');
-
       setCarts(crts);
     }
-  }, [router]);
+  }, [router, carts]);
+
+  useEffect(() => {
+    if (CartService.containGoods()) setContainGoods(true);
+    else setContainGoods(false);
+  }, []);
 
   const addQty = (id: string) => {
     setCarts(CartService.addQty(id));
@@ -80,22 +95,25 @@ export default function OrderSubmitPage() {
           </div>
         </div>
 
-        <div className='items-center w-full'>
-          <div className='flex items-center'>
-            <label className='block text-sm mr-3 font-medium text-gray-700'>
-              Opsi Pengiriman
-            </label>
-          </div>
-          <div className='w-full mt-2'>
-            <div className='text-sm p-2 border border-gray-200 rounded-md'>
-              <span className='block'>Reguler : Rp 150.000</span>
-              <span className='block'>
-                Barang akan diterima -+ 2 minggu setelah pemesanan diproses
-              </span>
-              <span className='block'>Reguler : Rp 150.000</span>
+        <If condition={containGoods}>
+          <Then>
+            <div className='items-center w-full'>
+              <div className='flex items-center'>
+                <label className='block text-sm mr-3 font-medium text-gray-700'>
+                  Opsi Pengiriman
+                </label>
+              </div>
+              <div className='w-full mt-2'>
+                <div className='text-sm p-2 border border-gray-200 rounded-md'>
+                  <span className='block'>
+                    {shipping.type} : {formatter.format(shipping.price)}
+                  </span>
+                  <span className='block'>{shipping.desc}</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </Then>
+        </If>
 
         <div className='items-center w-full'>
           <div className='flex items-center'>
@@ -104,12 +122,17 @@ export default function OrderSubmitPage() {
             </label>
           </div>
           <div className='w-full mt-2'>
-            <div className='text-sm p-2 border border-gray-200 rounded-md'>
-              <span className='block'>Reguler : Rp 150.000</span>
+            <div className='text-sm flex items-center p-2 border border-gray-200 rounded-md'>
               <span className='block'>
-                Barang akan diterima -+ 2 minggu setelah pemesanan diproses
+                <Image
+                  src={`/images/${payment.image}`}
+                  alt={payment.desc}
+                  width={60}
+                  height={40}
+                  className='object-contain'
+                />
               </span>
-              <span className='block'>Reguler : Rp 150.000</span>
+              <span className='block ml-2'>{payment.desc}</span>
             </div>
           </div>
         </div>

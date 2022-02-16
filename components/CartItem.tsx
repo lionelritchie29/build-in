@@ -110,7 +110,6 @@ export default function CartItemComponent({
                 className='inline w-12 h-6 text-center border border-gray-300 rounded'
                 value={cart.quantity}
                 onChange={() => {}}
-                min={1}
               />
             </span>
             <button

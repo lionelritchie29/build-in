@@ -4,6 +4,9 @@ import { ArrowLeftIcon } from '@heroicons/react/solid';
 import classNames from 'classnames';
 import { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
+import { OrderService } from '../services/OrderService';
+import { Shipping } from '../models/Shipping';
+import { Payment } from '../models/Payment';
 
 type Props = {
   payments: {
@@ -31,6 +34,18 @@ export default function OrderOptionOverlay({
   setShipping,
   setPayment,
 }: Props) {
+  const saveShipping = (shipping: Shipping) => {
+    OrderService.saveShipping(shipping);
+    setShipping(shipping);
+    setShow(false);
+  };
+
+  const savePayment = (payment: Payment) => {
+    OrderService.savePayment(payment);
+    setPayment(payment);
+    setShow(false);
+  };
+
   return (
     <div
       className={classNames(
@@ -51,10 +66,7 @@ export default function OrderOptionOverlay({
           <Then>
             {shippings.map((shipping) => (
               <li
-                onClick={() => {
-                  setShipping(shipping);
-                  setShow(false);
-                }}
+                onClick={() => saveShipping(shipping)}
                 key={shipping.type}
                 className='bg-white text-sm p-2 border border-gray-300 rounded-md cursor-pointer shadow relative'>
                 <span className='block'>
@@ -67,10 +79,7 @@ export default function OrderOptionOverlay({
           <Else>
             {payments.map((payment) => (
               <li
-                onClick={() => {
-                  setPayment(payment);
-                  setShow(false);
-                }}
+                onClick={() => savePayment(payment)}
                 key={payment.desc}
                 className='bg-white flex items-center text-sm p-2 border border-gray-300 rounded-md cursor-pointer shadow relative'>
                 <span className='block'>

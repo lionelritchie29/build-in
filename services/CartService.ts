@@ -58,14 +58,18 @@ export class CartService {
   }
 
   public static reduceQty(id: string): CartItem[] {
-    const cart: CartItem[] = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
+    let cart: CartItem[] = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
     const existIdx = cart.findIndex((c) => c.id == id);
 
-    if (existIdx !== -1 && cart[existIdx].quantity > 1) {
-      cart[existIdx] = {
-        ...cart[existIdx],
-        quantity: cart[existIdx].quantity - 1,
-      };
+    if (existIdx !== -1) {
+      if (cart[existIdx].quantity > 1) {
+        cart[existIdx] = {
+          ...cart[existIdx],
+          quantity: cart[existIdx].quantity - 1,
+        };
+      } else {
+        cart = cart.filter((c) => c.id !== id);
+      }
 
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
     }
@@ -81,10 +85,24 @@ export class CartService {
     localStorage.setItem(CART_KEY, '[]');
   }
 
+  public static containService(): boolean {
+    const carts = CartService.getAll();
+    return carts.some(
+      (c) => c.type === 'architecture' || c.type === 'interior',
+    );
+  }
+
+  public static containGoods(): boolean {
+    const carts = CartService.getAll();
+    return carts.some(
+      (c) => c.type !== 'architecture' && c.type !== 'interior',
+    );
+  }
+
   public static getTotal(): number {
     const cart: CartItem[] = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
     const total = cart.reduce((prev, curr) => {
-      return prev + curr.price;
+      return prev + curr.price * curr.quantity;
     }, 0);
     return total;
   }

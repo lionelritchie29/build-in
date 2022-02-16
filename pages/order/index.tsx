@@ -20,6 +20,8 @@ import { Payment } from '../../models/Payment';
 import shippingsData from '../../data/shippings.json';
 import paymentsData from '../../data/payments.json';
 import { useRouter } from 'next/router';
+import { OrderService } from '../../services/OrderService';
+import { If, Then } from 'react-if';
 
 export default function OrderPage() {
   const [carts, setCarts] = useState([]);
@@ -31,17 +33,27 @@ export default function OrderPage() {
   const [payment, setPayment] = useState(payments[0]);
   const [showForShipping, setShowForShipping] = useState(true);
   const [showChooseOverlay, setShowChooseOverlay] = useState(false);
+  const [containGoods, setContainGoods] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    OrderService.saveShipping(shipping);
+    OrderService.savePayment(payment);
+  }, [shipping, payment]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const crts = CartService.getAll();
-
       if (!crts.length) router.push('/home');
 
       setCarts(crts);
     }
   }, [router]);
+
+  useEffect(() => {
+    if (CartService.containGoods()) setContainGoods(true);
+    else setContainGoods(false);
+  }, []);
 
   const addQty = (id: string) => {
     setCarts(CartService.addQty(id));
@@ -130,30 +142,34 @@ export default function OrderPage() {
           </div>
         </div>
 
-        <div className='items-center w-full'>
-          <div className='flex items-center'>
-            <label className='block text-sm mr-3 font-medium text-gray-700'>
-              Opsi Pengiriman
-            </label>
-          </div>
-          <div className='w-full mt-2'>
-            <div
-              onClick={() => {
-                setShowChooseOverlay(true);
-                setShowForShipping(true);
-              }}
-              className='text-sm p-2 border border-gray-300 rounded-md cursor-pointer shadow relative'>
-              <span className='block'>
-                {shipping.type} : {formatter.format(shipping.price)}
-              </span>
-              <span className='block'>{shipping.desc}</span>
+        <If condition={containGoods}>
+          <Then>
+            <div className='items-center w-full'>
+              <div className='flex items-center'>
+                <label className='block text-sm mr-3 font-medium text-gray-700'>
+                  Opsi Pengiriman
+                </label>
+              </div>
+              <div className='w-full mt-2'>
+                <div
+                  onClick={() => {
+                    setShowChooseOverlay(true);
+                    setShowForShipping(true);
+                  }}
+                  className='text-sm p-2 border border-gray-300 rounded-md cursor-pointer shadow relative'>
+                  <span className='block'>
+                    {shipping.type} : {formatter.format(shipping.price)}
+                  </span>
+                  <span className='block'>{shipping.desc}</span>
 
-              <span className='absolute top-0 right-2 h-full flex items-center'>
-                <ChevronDownIcon className='w-5 h-5' />
-              </span>
+                  <span className='absolute top-0 right-2 h-full flex items-center'>
+                    <ChevronDownIcon className='w-5 h-5' />
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </Then>
+        </If>
 
         <div className='items-center w-full'>
           <div className='flex items-center'>

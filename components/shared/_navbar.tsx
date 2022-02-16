@@ -62,7 +62,7 @@ export default function Navbar({ title, showMenu, showCart }: Props) {
   ];
 
   return (
-    <nav className='flex justify-between bg-primary items-center px-2'>
+    <nav className='flex justify-between bg-primary items-center px-2 z-50'>
       <div className='flex text-white items-center'>
         {showMenu ? (
           <MenuIcon
@@ -82,7 +82,9 @@ export default function Navbar({ title, showMenu, showCart }: Props) {
         {showCart && (
           <div className='cursor-pointer'>
             <Link href='/cart' passHref={true}>
-              <Image src={cartImg} alt='Cart' width={55} height={50}></Image>
+              <div>
+                <Image src={cartImg} alt='Cart' width={55} height={50}></Image>
+              </div>
             </Link>
           </div>
         )}

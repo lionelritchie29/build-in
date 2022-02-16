@@ -9,6 +9,7 @@ type Props = {
   className?: string;
   showMenu?: boolean;
   showCart?: boolean;
+  withPadding?: boolean;
 };
 
 export default function Layout({
@@ -18,10 +19,12 @@ export default function Layout({
   className,
   showMenu,
   showCart,
+  withPadding,
 }: Props) {
   withNavbar = withNavbar === undefined ? true : withNavbar;
   showMenu = showMenu === undefined ? false : showMenu;
   showCart = showCart === undefined ? false : showCart;
+  withPadding = withPadding === undefined ? true : withPadding;
 
   return (
     <div>
@@ -35,7 +38,9 @@ export default function Layout({
         {withNavbar && (
           <Navbar title={title} showCart={showCart} showMenu={showMenu} />
         )}
-        <main className={classNames('px-4 py-2', className)}>{children}</main>
+        <main className={classNames({ 'px-4 py-2': withPadding }, className)}>
+          {children}
+        </main>
       </div>
     </div>
   );

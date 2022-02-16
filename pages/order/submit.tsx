@@ -31,16 +31,14 @@ export default function OrderSubmitPage() {
       setPayment(OrderService.getPayment());
       setAddress(OrderService.getAddress());
 
+      if (CartService.containGoods()) setContainGoods(true);
+      else setContainGoods(false);
+
       const crts = CartService.getAll();
       if (!crts.length) router.push('/home');
       setCarts(crts);
     }
-  }, [router, carts]);
-
-  useEffect(() => {
-    if (CartService.containGoods()) setContainGoods(true);
-    else setContainGoods(false);
-  }, []);
+  }, [router]);
 
   const addQty = (id: string) => {
     setCarts(CartService.addQty(id));

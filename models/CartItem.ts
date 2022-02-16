@@ -13,4 +13,5 @@ export type CartItem = {
   image: string;
   price: number;
   name: string;
+  creator?: string;
 };

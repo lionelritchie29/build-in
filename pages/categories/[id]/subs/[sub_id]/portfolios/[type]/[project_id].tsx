@@ -77,6 +77,7 @@ export default function PortfolioDetailPage({ project, subCategory }) {
           project.image,
           project.harga,
           project.name,
+          project.architect,
         );
         toast.success('Product succesfully added to the cart!');
       },

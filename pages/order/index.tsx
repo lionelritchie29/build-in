@@ -77,6 +77,7 @@ export default function OrderPage() {
           </div>
           <div className='w-full'>
             <input
+              disabled={true}
               type='text'
               className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 border-gray-300 rounded'
               placeholder='Your Name'
@@ -94,6 +95,7 @@ export default function OrderPage() {
           </div>
           <div className='w-full'>
             <input
+              disabled={true}
               type='text'
               className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 border-gray-300 rounded'
               placeholder='08xxxxxxxxx'

@@ -11,6 +11,7 @@ export class CartService {
     image: string,
     price: number,
     name: string,
+    creator?: string,
   ) {
     const type = this.getType(categoryId);
     const cart: CartItem[] = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
@@ -28,7 +29,7 @@ export class CartService {
         quantity: cart[existIdx].quantity + 1,
       };
     } else {
-      cart.push({
+      const obj = {
         id,
         subCategoryId,
         categoryId,
@@ -37,7 +38,13 @@ export class CartService {
         image,
         price,
         name,
-      });
+      };
+
+      if (creator) {
+        obj['creator'] = creator;
+      }
+
+      cart.push(obj);
     }
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
   }

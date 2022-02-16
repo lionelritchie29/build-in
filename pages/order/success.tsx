@@ -1,9 +1,12 @@
 import { getSession, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { format } from 'path/posix';
 import { useEffect, useState } from 'react';
 import { If, Then } from 'react-if';
 import Layout from '../../components/shared/_layout';
-import { zeroPad } from '../../lib/helper';
+import { formatter, zeroPad } from '../../lib/helper';
+import { Payment } from '../../models/Payment';
+import { Shipping } from '../../models/Shipping';
 import { User } from '../../models/User';
 import SuccessImg from '../../public/images/success.png';
 import { CartService } from '../../services/CartService';
@@ -16,6 +19,16 @@ export default function OrderSuccess() {
   const [carts, setCarts] = useState([]);
   const [containGood, setContainGoods] = useState(false);
   const [containServices, setContainServices] = useState(false);
+  const [shipping, setShipping] = useState<Shipping>({
+    desc: '',
+    price: 0,
+    type: '',
+  });
+  const [payment, setPayment] = useState<Payment>({
+    desc: '',
+    image: '',
+  });
+  const [totalPrice, setTotalPrice] = useState(0);
   const [address, setAddress] = useState('');
 
   useEffect(() => {
@@ -24,6 +37,9 @@ export default function OrderSuccess() {
       setContainGoods(CartService.containGoods());
       setContainServices(CartService.containService());
       setAddress(OrderService.getAddress());
+      setPayment(OrderService.getPayment());
+      setShipping(OrderService.getShipping());
+      setTotalPrice(CartService.getTotal());
     }
   }, []);
 
@@ -139,8 +155,16 @@ export default function OrderSuccess() {
 
           <div className='w-1/2 space-y-2 text-right'>
             <span className='block'>BCA - Virtual Account</span>
-            <span className='block'>Rp. 3.300.000</span>
-            <span className='block'>Rp. 150.000</span>
+            <span className='block'>{formatter.format(totalPrice)}</span>
+
+            <If condition={containGood}>
+              <Then>
+                <span className='block'>
+                  {formatter.format(shipping.price)}
+                </span>
+              </Then>
+            </If>
+
             <span className='block'>Rp. 50.000</span>
           </div>
         </div>
@@ -149,7 +173,12 @@ export default function OrderSuccess() {
       <div className='border-b-2 border-gray-900 mt-10'>
         <div className='flex justify-between'>
           <h2 className='font-semibold text-lg mb-4'>Total Bayar</h2>
-          <h2 className='font-semibold text-lg mb-4'> Rp3.500.000</h2>
+          <h2 className='font-semibold text-lg mb-4'>
+            {' '}
+            {formatter.format(
+              containGood ? totalPrice + shipping.price : totalPrice,
+            )}
+          </h2>
         </div>
       </div>
 

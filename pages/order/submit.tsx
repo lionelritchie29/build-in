@@ -23,11 +23,13 @@ export default function OrderSubmitPage() {
   });
   const [payment, setPayment] = useState<Payment>({ image: '', desc: '' });
   const [containGoods, setContainGoods] = useState(true);
+  const [address, setAddress] = useState('');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setShipping(OrderService.getShipping());
       setPayment(OrderService.getPayment());
+      setAddress(OrderService.getAddress());
 
       const crts = CartService.getAll();
       if (!crts.length) router.push('/home');
@@ -63,8 +65,7 @@ export default function OrderSubmitPage() {
           </div>
           <div className='w-full mt-2'>
             <div className='text-sm p-2 border border-gray-200 rounded-md'>
-              Jl. Raya Kb. Jeruk No.27, RT.2/RW.9,  Kb. Jeruk, Kec. Kb. Jeruk,
-              Kota Jakarta  Barat, Daerah Khusus Ibukota Jakarta  11530
+              {address}
             </div>
           </div>
         </div>

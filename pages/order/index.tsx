@@ -31,6 +31,7 @@ export default function OrderPage() {
   const payments: Payment[] = paymentsData.payments;
   const [shipping, setShipping] = useState(shippings[0]);
   const [payment, setPayment] = useState(payments[0]);
+  const [address, setAddress] = useState('');
   const [showForShipping, setShowForShipping] = useState(true);
   const [showChooseOverlay, setShowChooseOverlay] = useState(false);
   const [containGoods, setContainGoods] = useState(true);
@@ -45,6 +46,7 @@ export default function OrderPage() {
     if (typeof window !== 'undefined') {
       const crts = CartService.getAll();
       if (!crts.length) router.push('/home');
+      setAddress(OrderService.getAddress());
 
       setCarts(crts);
     }
@@ -110,8 +112,11 @@ export default function OrderPage() {
           <div className='w-full mt-2'>
             <textarea
               rows={3}
-              defaultValue='Jl. Raya Kb. Jeruk No.27, RT.2/RW.9,  Kb. Jeruk, Kec. Kb. Jeruk,
-              Kota Jakarta  Barat, Daerah Khusus Ibukota Jakarta  11530'
+              value={address}
+              onChange={(e) => {
+                setAddress(e.target.value);
+                OrderService.saveAddress(e.target.value);
+              }}
               className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 border-gray-300 rounded'></textarea>
           </div>
         </div>

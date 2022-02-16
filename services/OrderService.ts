@@ -1,4 +1,4 @@
-import { PAYMENT_KEY, SHIPPING_KEY } from '../lib/constant';
+import { ADDRESS_KEY, PAYMENT_KEY, SHIPPING_KEY } from '../lib/constant';
 import { Payment } from '../models/Payment';
 import { Shipping } from '../models/Shipping';
 
@@ -17,5 +17,13 @@ export class OrderService {
 
   public static getShipping(): Shipping {
     return JSON.parse(localStorage.getItem(SHIPPING_KEY) ?? '{}');
+  }
+
+  public static saveAddress(address: string) {
+    localStorage.setItem(ADDRESS_KEY, address);
+  }
+
+  public static getAddress(): string {
+    return localStorage.getItem(ADDRESS_KEY);
   }
 }

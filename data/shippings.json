@@ -1,0 +1,19 @@
+{
+  "shippings": [
+    {
+      "type": "Reguler",
+      "price": 150000,
+      "desc": "Barang akan diterima -+ 2 minggu setelah pemesanan diproses"
+    },
+    {
+      "type": "Express",
+      "price": 200000,
+      "desc": "Barang akan diterima -+ 1 minggu setelah pemesanan diproses"
+    },
+    {
+      "type": "Instant",
+      "price": 300000,
+      "desc": "Barang akan diterima -+ 2 hari setelah pemesanan diproses"
+    }
+  ]
+}

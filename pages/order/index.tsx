@@ -5,19 +5,32 @@ import {
   PhoneIcon,
   LocationMarkerIcon,
   ShoppingBagIcon,
+  ChevronDownIcon,
 } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
 import { CartService } from '../../services/CartService';
 import CartItemComponent from '../../components/CartItem';
 import { formatter } from '../../lib/helper';
 import Link from 'next/link';
-import { Session } from '../../models/Session';
 import { User } from '../../models/User';
+import Image from 'next/image';
+import OrderOptionOverlay from '../../components/OrderOptionOverlay';
+import { Shipping } from '../../models/Shipping';
+import { Payment } from '../../models/Payment';
+import shippingsData from '../../data/shippings.json';
+import paymentsData from '../../data/payments.json';
 
 export default function OrderPage() {
   const [carts, setCarts] = useState([]);
   const session = useSession();
   const user = session.data.user as User;
+
+  const shippings: Shipping[] = shippingsData.shippings;
+  const payments: Payment[] = paymentsData.payments;
+  const [shipping, setShipping] = useState(shippings[0]);
+  const [payment, setPayment] = useState(payments[0]);
+  const [showForShipping, setShowForShipping] = useState(true);
+  const [showChooseOverlay, setShowChooseOverlay] = useState(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -81,9 +94,9 @@ export default function OrderPage() {
           <div className='w-full mt-2'>
             <textarea
               rows={3}
-              className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 border-gray-300 rounded'>
-              Jl. Kebon Jeruk No. 27
-            </textarea>
+              defaultValue='Jl. Raya Kb. Jeruk No.27, RT.2/RW.9,  Kb. Jeruk, Kec. Kb. Jeruk,
+              Kota Jakarta  Barat, Daerah Khusus Ibukota Jakarta  11530'
+              className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 border-gray-300 rounded'></textarea>
           </div>
         </div>
 
@@ -120,12 +133,20 @@ export default function OrderPage() {
             </label>
           </div>
           <div className='w-full mt-2'>
-            <div className='text-sm p-2 border border-gray-300 rounded-md cursor-pointer shadow'>
-              <span className='block'>Reguler : Rp 150.000</span>
+            <div
+              onClick={() => {
+                setShowChooseOverlay(true);
+                setShowForShipping(true);
+              }}
+              className='text-sm p-2 border border-gray-300 rounded-md cursor-pointer shadow relative'>
               <span className='block'>
-                Barang akan diterima -+ 2 minggu setelah pemesanan diproses
+                {shipping.type} : {formatter.format(shipping.price)}
               </span>
-              <span className='block'>Reguler : Rp 150.000</span>
+              <span className='block'>{shipping.desc}</span>
+
+              <span className='absolute top-0 right-2 h-full flex items-center'>
+                <ChevronDownIcon className='w-5 h-5' />
+              </span>
             </div>
           </div>
         </div>
@@ -137,12 +158,26 @@ export default function OrderPage() {
             </label>
           </div>
           <div className='w-full mt-2'>
-            <div className='text-sm p-2 border border-gray-300 rounded-md cursor-pointer shadow'>
-              <span className='block'>Reguler : Rp 150.000</span>
+            <div
+              onClick={() => {
+                setShowChooseOverlay(true);
+                setShowForShipping(false);
+              }}
+              className='text-sm p-2 flex border items-center border-gray-300 rounded-md cursor-pointer shadow relative'>
               <span className='block'>
-                Barang akan diterima -+ 2 minggu setelah pemesanan diproses
+                <Image
+                  src={`/images/${payment.image}`}
+                  alt={payment.desc}
+                  width={60}
+                  height={40}
+                  className='object-contain'
+                />
               </span>
-              <span className='block'>Reguler : Rp 150.000</span>
+              <span className='block ml-2'>{payment.desc}</span>
+
+              <span className='absolute top-0 right-2 h-full flex items-center'>
+                <ChevronDownIcon className='w-5 h-5' />
+              </span>
             </div>
           </div>
         </div>
@@ -163,6 +198,16 @@ export default function OrderPage() {
           </Link>
         </div>
       </form>
+
+      <OrderOptionOverlay
+        payments={payments}
+        shippings={shippings}
+        showForShipping={showForShipping}
+        show={showChooseOverlay}
+        setShow={setShowChooseOverlay}
+        setShipping={setShipping}
+        setPayment={setPayment}
+      />
     </Layout>
   );
 }

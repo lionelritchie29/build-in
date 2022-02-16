@@ -1,0 +1,20 @@
+{
+  "payments": [
+    {
+      "image": "ovo.png",
+      "desc": "Ovo E-Money"
+    },
+    {
+      "image": "bank_transfer.png",
+      "desc": "Bank Transfer"
+    },
+    {
+      "image": "credit_card.png",
+      "desc": "Kartu Kredit"
+    },
+    {
+      "image": "virtual_account.png",
+      "desc": "Virtual Account"
+    }
+  ]
+}

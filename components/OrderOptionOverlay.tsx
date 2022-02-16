@@ -34,7 +34,7 @@ export default function OrderOptionOverlay({
   return (
     <div
       className={classNames(
-        'absolute top-0 left-0 w-full h-screen p-3 transition-all duration-500',
+        'fixed top-0 left-0 w-full h-screen p-3 transition-all duration-500',
         {
           'translate-y-full': !show,
         },

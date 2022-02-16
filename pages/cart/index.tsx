@@ -102,7 +102,7 @@ export default function CartPage() {
         })}
       </ul>
 
-      <BottomNav links={bottomLinks} />
+      {carts.length && <BottomNav links={bottomLinks} />}
     </Layout>
   );
 }

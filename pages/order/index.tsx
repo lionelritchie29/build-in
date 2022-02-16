@@ -19,25 +19,29 @@ import { Shipping } from '../../models/Shipping';
 import { Payment } from '../../models/Payment';
 import shippingsData from '../../data/shippings.json';
 import paymentsData from '../../data/payments.json';
+import { useRouter } from 'next/router';
 
 export default function OrderPage() {
   const [carts, setCarts] = useState([]);
   const session = useSession();
   const user = session.data.user as User;
-
   const shippings: Shipping[] = shippingsData.shippings;
   const payments: Payment[] = paymentsData.payments;
   const [shipping, setShipping] = useState(shippings[0]);
   const [payment, setPayment] = useState(payments[0]);
   const [showForShipping, setShowForShipping] = useState(true);
-  const [showChooseOverlay, setShowChooseOverlay] = useState(true);
+  const [showChooseOverlay, setShowChooseOverlay] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const crts = CartService.getAll();
+
+      if (!crts.length) router.push('/home');
+
       setCarts(crts);
     }
-  }, []);
+  }, [router]);
 
   const addQty = (id: string) => {
     setCarts(CartService.addQty(id));

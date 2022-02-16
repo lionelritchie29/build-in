@@ -1,29 +1,29 @@
 import { getSession, useSession } from 'next-auth/react';
 import Layout from '../../components/shared/_layout';
-import {
-  UserIcon,
-  PhoneIcon,
-  LocationMarkerIcon,
-  ShoppingBagIcon,
-} from '@heroicons/react/solid';
+import { LocationMarkerIcon, ShoppingBagIcon } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
 import { CartService } from '../../services/CartService';
 import CartItemComponent from '../../components/CartItem';
 import { formatter } from '../../lib/helper';
 import Link from 'next/link';
 import { User } from '../../models/User';
+import { useRouter } from 'next/router';
 
 export default function OrderSubmitPage() {
   const [carts, setCarts] = useState([]);
   const session = useSession();
   const user = session.data.user as User;
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const crts = CartService.getAll();
+
+      if (!crts.length) router.push('/home');
+
       setCarts(crts);
     }
-  }, []);
+  }, [router]);
 
   const addQty = (id: string) => {
     setCarts(CartService.addQty(id));
@@ -104,7 +104,7 @@ export default function OrderSubmitPage() {
             </label>
           </div>
           <div className='w-full mt-2'>
-            <div className='text-sm p-2 border border-gray-100 rounded-md'>
+            <div className='text-sm p-2 border border-gray-200 rounded-md'>
               <span className='block'>Reguler : Rp 150.000</span>
               <span className='block'>
                 Barang akan diterima -+ 2 minggu setelah pemesanan diproses

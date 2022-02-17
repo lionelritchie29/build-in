@@ -25,15 +25,19 @@ export default function StepFive({ type, setActiveIdx }: Props) {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<Inputs>();
   const [isLoading, setIsLoading] = useState(false);
-  const [custom, setCustom] = useState<CustomData>();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setCustom(CustomService.get());
+      const custom = CustomService.get();
+      if (custom) {
+        setValue('userNote', custom.revisionThree?.designerNote ?? '');
+        setValue('designerNote', custom.revisionThree?.userNote ?? '');
+      }
     }
-  }, []);
+  }, [setValue]);
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     userNote,
@@ -76,7 +80,6 @@ export default function StepFive({ type, setActiveIdx }: Props) {
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
             rows={3}
-            defaultValue={custom?.revisionThree?.userNote}
             {...register('userNote', { required: true })}
             className={classNames(
               'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 rounded',
@@ -99,7 +102,6 @@ export default function StepFive({ type, setActiveIdx }: Props) {
         </label>
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
-            defaultValue={custom?.revisionThree?.designerNote}
             rows={3}
             {...register('designerNote', { required: true })}
             className={classNames(

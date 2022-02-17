@@ -25,15 +25,19 @@ export default function StepThree({ type, setActiveIdx }: Props) {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<Inputs>();
   const [isLoading, setIsLoading] = useState(false);
-  const [custom, setCustom] = useState<CustomData>();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setCustom(CustomService.get());
+      const custom = CustomService.get();
+      if (custom) {
+        setValue('userNote', custom.revisionOne?.designerNote ?? '');
+        setValue('designerNote', custom.revisionOne?.userNote ?? '');
+      }
     }
-  }, []);
+  }, [setValue]);
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     userNote,
@@ -69,7 +73,6 @@ export default function StepThree({ type, setActiveIdx }: Props) {
           <textarea
             rows={3}
             {...register('userNote', { required: true })}
-            defaultValue={custom?.revisionOne?.userNote}
             className={classNames(
               'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 rounded',
               {
@@ -92,7 +95,6 @@ export default function StepThree({ type, setActiveIdx }: Props) {
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
             rows={3}
-            defaultValue={custom?.revisionOne?.designerNote}
             {...register('designerNote', { required: true })}
             className={classNames(
               'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 rounded',

@@ -23,21 +23,25 @@ type Props = {
 };
 
 export default function StepOne({ type, setActiveIdx }: Props) {
-  const router = useRouter();
-  const [custom, setCustom] = useState<CustomData>();
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCustom(CustomService.get());
-    }
-  }, []);
-
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<Inputs>();
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const custom = CustomService.get();
+      if (custom) {
+        setValue('name', custom.name ?? '');
+        setValue('email', custom.email ?? '');
+        setValue('address', custom.address ?? '');
+        setValue('phone', custom.phone ?? '');
+      }
+    }
+  }, [setValue]);
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     name,
@@ -70,7 +74,6 @@ export default function StepOne({ type, setActiveIdx }: Props) {
             )}
             {...register('name', { required: true })}
             placeholder='Input name'
-            defaultValue={custom?.name}
           />
           {errors.name && (
             <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
@@ -96,7 +99,6 @@ export default function StepOne({ type, setActiveIdx }: Props) {
           <textarea
             rows={3}
             {...register('address', { required: true })}
-            defaultValue={custom?.address}
             className={classNames(
               'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 rounded',
               {
@@ -124,7 +126,6 @@ export default function StepOne({ type, setActiveIdx }: Props) {
             )}
             {...register('email', { required: true })}
             placeholder='Input email'
-            defaultValue={custom?.email}
           />
           {errors.email && (
             <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
@@ -156,7 +157,6 @@ export default function StepOne({ type, setActiveIdx }: Props) {
             )}
             {...register('phone', { required: true })}
             placeholder='Input phone number'
-            defaultValue={custom?.phone}
           />
           {errors.phone && (
             <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>

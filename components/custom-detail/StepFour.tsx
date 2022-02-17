@@ -25,15 +25,19 @@ export default function StepFour({ type, setActiveIdx }: Props) {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<Inputs>();
   const [isLoading, setIsLoading] = useState(false);
-  const [custom, setCustom] = useState<CustomData>();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setCustom(CustomService.get());
+      const custom = CustomService.get();
+      if (custom) {
+        setValue('userNote', custom.revisionTwo?.designerNote ?? '');
+        setValue('designerNote', custom.revisionTwo?.userNote ?? '');
+      }
     }
-  }, []);
+  }, [setValue]);
 
   const onSubmit: SubmitHandler<Inputs> = async ({
     userNote,
@@ -71,7 +75,6 @@ export default function StepFour({ type, setActiveIdx }: Props) {
         </label>
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
-            defaultValue={custom?.revisionTwo?.userNote}
             rows={3}
             {...register('userNote', { required: true })}
             className={classNames(
@@ -95,7 +98,6 @@ export default function StepFour({ type, setActiveIdx }: Props) {
         </label>
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
-            defaultValue={custom?.revisionTwo?.designerNote}
             rows={3}
             {...register('designerNote', { required: true })}
             className={classNames(

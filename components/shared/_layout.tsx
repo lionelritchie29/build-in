@@ -10,6 +10,7 @@ type Props = {
   showMenu?: boolean;
   showCart?: boolean;
   withPadding?: boolean;
+  custom?: 'architecture' | 'interior' | 'furniture' | '';
 };
 
 export default function Layout({
@@ -20,6 +21,7 @@ export default function Layout({
   showMenu,
   showCart,
   withPadding,
+  custom,
 }: Props) {
   withNavbar = withNavbar === undefined ? true : withNavbar;
   showMenu = showMenu === undefined ? false : showMenu;
@@ -36,7 +38,12 @@ export default function Layout({
 
       <div className='max-w-md mx-auto md:border-l md:border-r pb-16 border-gray-300 min-h-screen relative overflow-hidden'>
         {withNavbar && (
-          <Navbar title={title} showCart={showCart} showMenu={showMenu} />
+          <Navbar
+            custom={custom}
+            title={title}
+            showCart={showCart}
+            showMenu={showMenu}
+          />
         )}
         <main className={classNames({ 'px-4 py-2': withPadding }, className)}>
           {children}

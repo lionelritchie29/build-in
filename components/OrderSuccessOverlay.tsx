@@ -122,19 +122,19 @@ export default function OrderSuccessOverlay({ type, show, setShow }: Props) {
           </div>
 
           <div className='flex justify-around mt-2'>
-            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-green-500'>
+            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-custom-green'>
               <CheckIcon />
             </div>
-            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-green-500'>
+            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-custom-green'>
               <CheckIcon />
             </div>
-            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-green-500'>
+            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-custom-green'>
               <CheckIcon />
             </div>
           </div>
         </div>
 
-        <div className='text-green-500 text-lg text-center font-semibold my-10'>
+        <div className='text-custom-green text-lg text-center font-semibold my-10'>
           {type === 'item' ? 'Pesanan Dikirim' : 'Tracking'}
         </div>
       </div>
@@ -152,7 +152,7 @@ export default function OrderSuccessOverlay({ type, show, setShow }: Props) {
               <div
                 className={classNames('w-4 h-4 rounded-full', {
                   'bg-gray-500': !step.active,
-                  'bg-green-500': step.active,
+                  'bg-custom-green': step.active,
                 })}></div>
               <div className='ml-4 w-full'>
                 <div className='flex justify-between text-xs'>

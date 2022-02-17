@@ -7,14 +7,16 @@ import { useState } from 'react';
 import { signOut } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import cartImg from '../../public/images/cart.png';
+import customImg from '../../public/images/custom.png';
 
 type Props = {
   title?: string;
   showMenu: boolean;
   showCart: boolean;
+  custom?: 'architecture' | 'interior' | 'furniture' | '';
 };
 
-export default function Navbar({ title, showMenu, showCart }: Props) {
+export default function Navbar({ title, showMenu, showCart, custom }: Props) {
   const router = useRouter();
   const [sideNavOpen, setSideNavOpen] = useState(false);
 
@@ -79,6 +81,19 @@ export default function Navbar({ title, showMenu, showCart }: Props) {
       </div>
 
       <div className='flex'>
+        {custom && (
+          <div className='cursor-pointer'>
+            <Link href={`/custom/${custom}`} passHref={true}>
+              <div>
+                <Image
+                  src={customImg}
+                  alt='Custom'
+                  width={55}
+                  height={50}></Image>
+              </div>
+            </Link>
+          </div>
+        )}
         {showCart && (
           <div className='cursor-pointer'>
             <Link href='/cart' passHref={true}>

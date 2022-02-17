@@ -6,8 +6,17 @@ import dummy from '../../../data/categories.json';
 import { Category } from '../../../models/Category';
 
 export default function SubCategoryPage({ category }) {
+  const getCustom = (
+    title: string,
+  ): 'architecture' | 'furniture' | 'interior' | '' => {
+    if (title.toLowerCase().includes('arsitektur')) return 'architecture';
+    if (title.toLowerCase().includes('interior')) return 'interior';
+    if (title.toLowerCase().includes('furniture')) return 'furniture';
+    return '';
+  };
+
   return (
-    <Layout title={category.title}>
+    <Layout title={category.title} custom={getCustom(category.title)}>
       <ul className='grid grid-cols-2 gap-x-8 gap-y-16 px-2 py-8'>
         {category.sub_categories.map((sub) => (
           <li className='cursor-pointer' key={sub.id}>

@@ -14,4 +14,12 @@
   .bg-primary-light {
     background-color: #6bb4c4;
   }
+
+  .bg-custom-green {
+    background-color: #7faf35;
+  }
+
+  .bg-custom-green-dark {
+    background-color: #598810;
+  }
 }

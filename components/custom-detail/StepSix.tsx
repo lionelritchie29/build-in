@@ -55,7 +55,7 @@ export default function StepSize({ type, setActiveIdx }: Props) {
         title: 'Tracking',
         image: 'tracking_furniture.jpg',
         onClick: () => {
-          router.push(`${router.asPath}/file`);
+          router.push(`${router.asPath}/tracking`);
         },
       },
     ],

@@ -10,7 +10,6 @@ type Props = {
 };
 
 export default function CustomPage({ type }: Props) {
-  console.log(type);
   return (
     <Layout title='Custom'>
       <Switch>

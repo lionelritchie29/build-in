@@ -30,7 +30,7 @@ export default function CustomInteriorForm() {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit: SubmitHandler<Inputs> = async (payload) => {
-    console.log(payload);
+    router.push(`${router.asPath}/detail`);
   };
 
   const interiors = [

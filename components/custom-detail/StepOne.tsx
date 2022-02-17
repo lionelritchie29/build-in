@@ -6,7 +6,9 @@ import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { getSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { CustomService } from '../../services/CustomService';
+import { CustomData } from '../../models/CustomData';
 
 type Inputs = {
   name: string;
@@ -22,6 +24,13 @@ type Props = {
 
 export default function StepOne({ type, setActiveIdx }: Props) {
   const router = useRouter();
+  const [custom, setCustom] = useState<CustomData>();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCustom(CustomService.get());
+    }
+  }, []);
 
   const {
     register,
@@ -30,7 +39,18 @@ export default function StepOne({ type, setActiveIdx }: Props) {
   } = useForm<Inputs>();
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit: SubmitHandler<Inputs> = async (payload) => {
+  const onSubmit: SubmitHandler<Inputs> = async ({
+    name,
+    address,
+    email,
+    phone,
+  }) => {
+    CustomService.save({
+      name,
+      address,
+      email,
+      phone,
+    });
     setActiveIdx(1);
   };
 
@@ -50,6 +70,7 @@ export default function StepOne({ type, setActiveIdx }: Props) {
             )}
             {...register('name', { required: true })}
             placeholder='Input name'
+            defaultValue={custom?.name}
           />
           {errors.name && (
             <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
@@ -75,6 +96,7 @@ export default function StepOne({ type, setActiveIdx }: Props) {
           <textarea
             rows={3}
             {...register('address', { required: true })}
+            defaultValue={custom?.address}
             className={classNames(
               'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 rounded',
               {
@@ -102,6 +124,7 @@ export default function StepOne({ type, setActiveIdx }: Props) {
             )}
             {...register('email', { required: true })}
             placeholder='Input email'
+            defaultValue={custom?.email}
           />
           {errors.email && (
             <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
@@ -133,6 +156,7 @@ export default function StepOne({ type, setActiveIdx }: Props) {
             )}
             {...register('phone', { required: true })}
             placeholder='Input phone number'
+            defaultValue={custom?.phone}
           />
           {errors.phone && (
             <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>

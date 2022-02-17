@@ -6,7 +6,9 @@ import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { getSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { CustomService } from '../../services/CustomService';
+import { CustomData } from '../../models/CustomData';
 
 type Inputs = {
   userNote: string;
@@ -25,8 +27,37 @@ export default function StepFour({ type, setActiveIdx }: Props) {
     formState: { errors },
   } = useForm<Inputs>();
   const [isLoading, setIsLoading] = useState(false);
+  const [custom, setCustom] = useState<CustomData>();
 
-  const onSubmit: SubmitHandler<Inputs> = async (payload) => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCustom(CustomService.get());
+    }
+  }, []);
+
+  const onSubmit: SubmitHandler<Inputs> = async ({
+    userNote,
+    designerNote,
+  }) => {
+    const custom = CustomService.get();
+    CustomService.save({
+      name: custom.name,
+      email: custom.email,
+      phone: custom.phone,
+      address: custom.address,
+      consultation: {
+        userNote: custom.consultation?.userNote,
+        designerNote: custom.consultation?.designerNote,
+      },
+      revisionOne: {
+        userNote: custom.revisionOne?.userNote,
+        designerNote: custom.revisionOne?.designerNote,
+      },
+      revisionTwo: {
+        userNote,
+        designerNote,
+      },
+    });
     setActiveIdx(4);
   };
 
@@ -40,6 +71,7 @@ export default function StepFour({ type, setActiveIdx }: Props) {
         </label>
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
+            defaultValue={custom?.revisionTwo?.userNote}
             rows={3}
             {...register('userNote', { required: true })}
             className={classNames(
@@ -63,6 +95,7 @@ export default function StepFour({ type, setActiveIdx }: Props) {
         </label>
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
+            defaultValue={custom?.revisionTwo?.designerNote}
             rows={3}
             {...register('designerNote', { required: true })}
             className={classNames(

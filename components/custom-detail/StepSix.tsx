@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 type Props = {
   type: 'architecture' | 'interior' | 'furniture';
@@ -7,35 +8,55 @@ type Props = {
 };
 
 export default function StepSize({ type, setActiveIdx }: Props) {
+  const router = useRouter();
+
   const buttons = {
     architecture: [
       {
         title: 'Rincian',
         image: 'rincian_arsi.jpg',
+        onClick: () => {
+          router.push(`${router.asPath}/info`);
+        },
       },
       {
         title: 'File',
         image: 'file_arsi.jpg',
+        onClick: () => {
+          router.push(`${router.asPath}/file`);
+        },
       },
     ],
     interior: [
       {
         title: 'Rincian',
         image: 'rincian_interior.jpg',
+        onClick: () => {
+          router.push(`${router.asPath}/info`);
+        },
       },
       {
         title: 'File',
         image: 'file_interior.jpg',
+        onClick: () => {
+          router.push(`${router.asPath}/file`);
+        },
       },
     ],
     furniture: [
       {
         title: 'Rincian',
         image: 'rincian_furniture.jpg',
+        onClick: () => {
+          router.push(`${router.asPath}/info`);
+        },
       },
       {
         title: 'Tracking',
         image: 'tracking_furniture.jpg',
+        onClick: () => {
+          router.push(`${router.asPath}/file`);
+        },
       },
     ],
   };
@@ -45,7 +66,7 @@ export default function StepSize({ type, setActiveIdx }: Props) {
       <h1 className='text-center text-2xl font-semibold mt-4'>Final</h1>
 
       <div className='flex flex-col justify-center items-center mt-16'>
-        <button>
+        <button onClick={() => buttons[type][0].onClick()}>
           <Image
             src={`/images/${buttons[type][0].image}`}
             alt=''
@@ -57,7 +78,7 @@ export default function StepSize({ type, setActiveIdx }: Props) {
           </span>
         </button>
 
-        <button className='mt-10'>
+        <button onClick={() => buttons[type][1].onClick()} className='mt-10'>
           <Image
             src={`/images/${buttons[type][1].image}`}
             alt=''

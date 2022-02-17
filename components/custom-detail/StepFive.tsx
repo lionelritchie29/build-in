@@ -6,7 +6,9 @@ import { toast } from 'react-toastify';
 import Link from 'next/link';
 import { getSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { CustomService } from '../../services/CustomService';
+import { CustomData } from '../../models/CustomData';
 
 type Inputs = {
   userNote: string;
@@ -25,8 +27,41 @@ export default function StepFive({ type, setActiveIdx }: Props) {
     formState: { errors },
   } = useForm<Inputs>();
   const [isLoading, setIsLoading] = useState(false);
+  const [custom, setCustom] = useState<CustomData>();
 
-  const onSubmit: SubmitHandler<Inputs> = async (payload) => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCustom(CustomService.get());
+    }
+  }, []);
+
+  const onSubmit: SubmitHandler<Inputs> = async ({
+    userNote,
+    designerNote,
+  }) => {
+    const custom = CustomService.get();
+    CustomService.save({
+      name: custom.name,
+      email: custom.email,
+      phone: custom.phone,
+      address: custom.address,
+      consultation: {
+        userNote: custom.consultation?.userNote,
+        designerNote: custom.consultation?.designerNote,
+      },
+      revisionOne: {
+        userNote: custom.revisionOne?.userNote,
+        designerNote: custom.revisionOne?.designerNote,
+      },
+      revisionTwo: {
+        userNote: custom.revisionTwo?.userNote,
+        designerNote: custom.revisionTwo?.designerNote,
+      },
+      revisionThree: {
+        userNote,
+        designerNote,
+      },
+    });
     setActiveIdx(5);
   };
 
@@ -41,6 +76,7 @@ export default function StepFive({ type, setActiveIdx }: Props) {
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
             rows={3}
+            defaultValue={custom?.revisionThree?.userNote}
             {...register('userNote', { required: true })}
             className={classNames(
               'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 rounded',
@@ -63,6 +99,7 @@ export default function StepFive({ type, setActiveIdx }: Props) {
         </label>
         <div className='mt-1 relative rounded-md shadow-sm'>
           <textarea
+            defaultValue={custom?.revisionThree?.designerNote}
             rows={3}
             {...register('designerNote', { required: true })}
             className={classNames(

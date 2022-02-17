@@ -1,15 +1,15 @@
 import { getSession } from 'next-auth/react';
-import Layout from '../../../components/shared/_layout';
-import { capitalizeFirstLetter } from '../../../lib/helper';
+import Layout from '../../../../components/shared/_layout';
+import { capitalizeFirstLetter } from '../../../../lib/helper';
 import Stepper from 'react-stepper-horizontal';
 import { useState } from 'react';
 import classNames from 'classnames';
-import StepOne from '../../../components/custom-detail/StepOne';
-import StepTwo from '../../../components/custom-detail/StepTwo';
-import StepThree from '../../../components/custom-detail/StepThree';
-import StepFour from '../../../components/custom-detail/StepFour';
-import StepFive from '../../../components/custom-detail/StepFive';
-import StepSix from '../../../components/custom-detail/StepSix';
+import StepOne from '../../../../components/custom-detail/StepOne';
+import StepTwo from '../../../../components/custom-detail/StepTwo';
+import StepThree from '../../../../components/custom-detail/StepThree';
+import StepFour from '../../../../components/custom-detail/StepFour';
+import StepFive from '../../../../components/custom-detail/StepFive';
+import StepSix from '../../../../components/custom-detail/StepSix';
 import { Case, Switch } from 'react-if';
 
 type Props = {

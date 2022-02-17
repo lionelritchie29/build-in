@@ -7,12 +7,12 @@ export class OrderService {
     localStorage.setItem(PAYMENT_KEY, JSON.stringify(payment));
   }
 
-  public static saveShipping(shipping: Shipping) {
-    localStorage.setItem(SHIPPING_KEY, JSON.stringify(shipping));
-  }
-
   public static getPayment(): Payment {
     return JSON.parse(localStorage.getItem(PAYMENT_KEY) ?? '{}');
+  }
+
+  public static saveShipping(shipping: Shipping) {
+    localStorage.setItem(SHIPPING_KEY, JSON.stringify(shipping));
   }
 
   public static getShipping(): Shipping {

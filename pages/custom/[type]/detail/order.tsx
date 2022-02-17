@@ -1,4 +1,4 @@
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 import Layout from '../../../../components/shared/_layout';
 import {
   UserIcon,
@@ -6,13 +6,11 @@ import {
   LocationMarkerIcon,
   ShoppingBagIcon,
   ChevronDownIcon,
+  PencilIcon,
 } from '@heroicons/react/solid';
 import { useEffect, useState } from 'react';
-import { CartService } from '../../../../services/CartService';
-import CartItemComponent from '../../../../components/CartItem';
 import { formatter } from '../../../../lib/helper';
 import Link from 'next/link';
-import { User } from '../../../../models/User';
 import Image from 'next/image';
 import OrderOptionOverlay from '../../../../components/OrderOptionOverlay';
 import { Shipping } from '../../../../models/Shipping';
@@ -22,19 +20,21 @@ import paymentsData from '../../../../data/payments.json';
 import { useRouter } from 'next/router';
 import { OrderService } from '../../../../services/OrderService';
 import { If, Then } from 'react-if';
+import { CustomData } from '../../../../models/CustomData';
+import { CustomService } from '../../../../services/CustomService';
 
-export default function OrderPage() {
-  const [carts, setCarts] = useState([]);
-  const session = useSession();
-  const user = session.data.user as User;
+type Props = {
+  type: 'architecture' | 'interior' | 'furniture';
+};
+
+export default function OrderPage({ type }: Props) {
   const shippings: Shipping[] = shippingsData.shippings;
   const payments: Payment[] = paymentsData.payments;
   const [shipping, setShipping] = useState(shippings[0]);
   const [payment, setPayment] = useState(payments[0]);
-  const [address, setAddress] = useState('');
   const [showForShipping, setShowForShipping] = useState(true);
   const [showChooseOverlay, setShowChooseOverlay] = useState(false);
-  const [containGoods, setContainGoods] = useState(true);
+  const [custom, setCustom] = useState<CustomData>();
   const router = useRouter();
 
   useEffect(() => {
@@ -44,26 +44,9 @@ export default function OrderPage() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const crts = CartService.getAll();
-      if (!crts.length) router.push('/home');
-      setAddress(OrderService.getAddress());
-
-      setCarts(crts);
+      setCustom(CustomService.get());
     }
   }, [router]);
-
-  useEffect(() => {
-    if (CartService.containGoods()) setContainGoods(true);
-    else setContainGoods(false);
-  }, []);
-
-  const addQty = (id: string) => {
-    setCarts(CartService.addQty(id));
-  };
-
-  const reduceQty = (id: string) => {
-    setCarts(CartService.reduceQty(id));
-  };
 
   return (
     <Layout title='Rincian'>
@@ -81,7 +64,7 @@ export default function OrderPage() {
               type='text'
               className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 border-gray-300 rounded'
               placeholder='Your Name'
-              defaultValue={user.name}
+              defaultValue={custom?.name}
             />
           </div>
         </div>
@@ -99,7 +82,7 @@ export default function OrderPage() {
               type='text'
               className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 border-gray-300 rounded'
               placeholder='08xxxxxxxxx'
-              defaultValue={user.phone}
+              defaultValue={custom?.phone}
             />
           </div>
         </div>
@@ -114,42 +97,42 @@ export default function OrderPage() {
           <div className='w-full mt-2'>
             <textarea
               rows={3}
-              value={address}
-              onChange={(e) => {
-                setAddress(e.target.value);
-                OrderService.saveAddress(e.target.value);
-              }}
+              defaultValue={custom?.address}
               className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border px-1 border-gray-300 rounded'></textarea>
           </div>
         </div>
 
         <div className='items-center w-full'>
           <div className='flex items-center'>
-            <ShoppingBagIcon className='w-5 h-5 mr-1' />
+            <PencilIcon className='w-5 h-5 mr-1' />
             <label className='block w-12 mr-3 font-medium text-gray-700'>
-              Inventory
+              {type === 'furniture' ? 'Furniture' : 'Project'}
             </label>
           </div>
           <div className='w-full mt-2'>
-            <ul className='grid grid-cols-1 gap-4'>
-              {carts.map((cart, idx) => {
-                return (
-                  <li key={cart.id}>
-                    <CartItemComponent
-                      addQty={addQty}
-                      reduceQty={reduceQty}
-                      cart={cart}
-                      idx={idx}
-                      forCartPage={false}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
+            <div className='flex'>
+              <span className='block'>
+                <Image
+                  src={`/images/furniture/beds/2.jpg`}
+                  alt={payment.desc}
+                  width={150}
+                  height={100}
+                  className='object-cover rounded'
+                />
+              </span>
+
+              <span className='block ml-2'>
+                <h3 className='text-lg font-semibold'>Riung Tower</h3>
+                <span className='block text-xs -mt-1'>Bagas Prakarsa</span>
+                <span className='block text-lg font-medium mt-2'>
+                  {formatter.format(50000000)}
+                </span>
+              </span>
+            </div>
           </div>
         </div>
 
-        <If condition={containGoods}>
+        {/* <If condition={containGoods}>
           <Then>
             <div className='items-center w-full'>
               <div className='flex items-center'>
@@ -176,7 +159,7 @@ export default function OrderPage() {
               </div>
             </div>
           </Then>
-        </If>
+        </If> */}
 
         <div className='items-center w-full'>
           <div className='flex items-center'>
@@ -210,9 +193,7 @@ export default function OrderPage() {
         </div>
 
         <div className='text-right mt-6 font-medium text-lg'>
-          Total:{' '}
-          {typeof window !== 'undefined' &&
-            formatter.format(CartService.getTotal())}
+          Total: {formatter.format(50000000)}
         </div>
 
         <div className='mt-2'>
@@ -234,6 +215,7 @@ export default function OrderPage() {
         setShow={setShowChooseOverlay}
         setShipping={setShipping}
         setPayment={setPayment}
+        forCart={false}
       />
     </Layout>
   );
@@ -250,7 +232,9 @@ export async function getServerSideProps(context) {
     };
   }
 
+  const { type } = context.query;
+
   return {
-    props: { session },
+    props: { session, type },
   };
 }

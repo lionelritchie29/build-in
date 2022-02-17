@@ -1,5 +1,6 @@
-import { CUSTOM_KEY } from '../lib/constant';
+import { CUSTOM_KEY, CUSTOM_PAYMENT_KEY } from '../lib/constant';
 import { CustomData } from '../models/CustomData';
+import { Payment } from '../models/Payment';
 
 export class CustomService {
   public static save(custom: CustomData) {
@@ -22,5 +23,13 @@ export class CustomService {
 
   public static get(): CustomData {
     return JSON.parse(localStorage.getItem(CUSTOM_KEY) ?? '{}');
+  }
+
+  public static savePayment(payment: Payment) {
+    localStorage.setItem(CUSTOM_PAYMENT_KEY, JSON.stringify(payment));
+  }
+
+  public static getPayment(): Payment {
+    return JSON.parse(localStorage.getItem(CUSTOM_PAYMENT_KEY) ?? '{}');
   }
 }

@@ -16,7 +16,7 @@ export default function StepSize({ type, setActiveIdx }: Props) {
         title: 'Rincian',
         image: 'rincian_arsi.jpg',
         onClick: () => {
-          router.push(`${router.asPath}/info`);
+          router.push(`${router.asPath}/order`);
         },
       },
       {
@@ -32,7 +32,7 @@ export default function StepSize({ type, setActiveIdx }: Props) {
         title: 'Rincian',
         image: 'rincian_interior.jpg',
         onClick: () => {
-          router.push(`${router.asPath}/info`);
+          router.push(`${router.asPath}/order`);
         },
       },
       {
@@ -48,7 +48,7 @@ export default function StepSize({ type, setActiveIdx }: Props) {
         title: 'Rincian',
         image: 'rincian_furniture.jpg',
         onClick: () => {
-          router.push(`${router.asPath}/info`);
+          router.push(`${router.asPath}/order`);
         },
       },
       {

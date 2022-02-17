@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { OrderService } from '../services/OrderService';
 import { Shipping } from '../models/Shipping';
 import { Payment } from '../models/Payment';
+import { CustomService } from '../services/CustomService';
 
 type Props = {
   payments: {
@@ -23,6 +24,7 @@ type Props = {
   setShow: Dispatch<SetStateAction<boolean>>;
   setShipping: Function;
   setPayment: Function;
+  forCart?: boolean;
 };
 
 export default function OrderOptionOverlay({
@@ -33,15 +35,26 @@ export default function OrderOptionOverlay({
   setShow,
   setShipping,
   setPayment,
+  forCart,
 }: Props) {
+  forCart = forCart === undefined ? true : forCart;
+
   const saveShipping = (shipping: Shipping) => {
-    OrderService.saveShipping(shipping);
+    if (forCart) {
+      OrderService.saveShipping(shipping);
+    }
+
     setShipping(shipping);
     setShow(false);
   };
 
   const savePayment = (payment: Payment) => {
-    OrderService.savePayment(payment);
+    if (forCart) {
+      OrderService.savePayment(payment);
+    } else {
+      CustomService.savePayment(payment);
+    }
+
     setPayment(payment);
     setShow(false);
   };

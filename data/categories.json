@@ -138,13 +138,13 @@
         {
           "id": "75d6ad9e-82fa-4699-9746-2f3ba21576be",
           "title": "Dinding",
-          "image": "material/1.png",
+          "image": "materials/1.png",
           "type": ""
         },
         {
           "id": "591639d0-5ca7-4e6b-bc89-8d5448f6029e",
           "title": "Lantai",
-          "image": "material/2.png",
+          "image": "materials/2.png",
           "type": ""
         }
       ]

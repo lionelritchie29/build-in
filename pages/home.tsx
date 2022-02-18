@@ -16,8 +16,11 @@ import materials from '../data/materials.json';
 import accesories from '../data/accesories.json';
 import { Else, If, Then } from 'react-if';
 import Link from 'next/link';
+import { useState } from 'react';
 
-export default function Home({ data }) {
+export default function Home({ data, rawData }) {
+  const [products, setProducts] = useState(data);
+
   const bottomLinks = [
     {
       title: 'Profile',
@@ -61,6 +64,18 @@ export default function Home({ data }) {
     return `/categories/${category.category_id}/subs/${category.sub_category_id}/products/${product.id}`;
   };
 
+  const search = (query: string) => {
+    if (query === '') {
+      setProducts(data);
+    } else {
+      setProducts(
+        rawData.filter((p) =>
+          p.name.toLowerCase().includes(query.toLowerCase()),
+        ),
+      );
+    }
+  };
+
   return (
     <Layout showMenu={true} title='Bu!ld-In' showCart={true} showFilter={true}>
       <div>
@@ -69,6 +84,7 @@ export default function Home({ data }) {
             <SearchIcon className='h-5 w-5 text-gray-400' aria-hidden='true' />
           </div>
           <input
+            onChange={(e) => search(e.target.value)}
             type='text'
             className='focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm p-2 border border-gray-300 rounded-md'
             placeholder='Search'
@@ -106,7 +122,7 @@ export default function Home({ data }) {
       </Carousel>
 
       <ul className='grid grid-cols-3 gap-4 mt-4'>
-        {data.map((p, idx) => (
+        {products.map((p, idx) => (
           <li className='flex flex-col' key={idx}>
             <Link href={getHref(p)} passHref={true}>
               <div className='cursor-pointer rounded border overflow-auto border-gray-300 flex'>
@@ -166,6 +182,6 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { session, data },
+    props: { session, data, rawData },
   };
 }

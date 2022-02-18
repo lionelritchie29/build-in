@@ -105,8 +105,8 @@ export default function Navbar({
                 <Image
                   src={customImg}
                   alt='Custom'
-                  width={55}
-                  height={50}></Image>
+                  width={45}
+                  height={40}></Image>
               </div>
             </Link>
           </div>
@@ -115,7 +115,7 @@ export default function Navbar({
           <div className='cursor-pointer'>
             <Link href='/cart' passHref={true}>
               <div>
-                <Image src={cartImg} alt='Cart' width={55} height={50}></Image>
+                <Image src={cartImg} alt='Cart' width={47} height={42}></Image>
               </div>
             </Link>
           </div>
@@ -127,8 +127,8 @@ export default function Navbar({
                 <Image
                   src={filterImg}
                   alt='Filter'
-                  width={50}
-                  height={50}></Image>
+                  width={42}
+                  height={42}></Image>
               </div>
             </Link>
           </div>
@@ -141,7 +141,7 @@ export default function Navbar({
         className={`z-20 absolute top-0 left-0 min-h-screen w-full transition-opacity duration-500 ${
           sideNavOpen ? 'opacity-100 w-full' : 'opacity-0 w-0'
         }`}
-        style={{ background: 'rgba(0,0,0,0.5)' }}></div>
+        style={{ background: 'rgba(0,0,0,0.8)' }}></div>
 
       <div
         className={`z-20 absolute top-0 left-0 min-h-screen w-1/2 transition-all duration-500 ${
@@ -168,9 +168,11 @@ export default function Navbar({
                     Log out
                   </button>
                 ) : (
-                  <button className='w-full bg-white  border border-gray-500 rounded-xl py-2'>
-                    <Link href={link.href}>{link.title}</Link>
-                  </button>
+                  <Link href={link.href} passHref={true}>
+                    <button className='w-full bg-white  border border-gray-500 rounded-xl py-2'>
+                      {link.title}
+                    </button>
+                  </Link>
                 )}
               </li>
             ))}

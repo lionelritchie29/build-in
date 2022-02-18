@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { OrderService } from '../services/OrderService';
 import { Shipping } from '../models/Shipping';
 import { Payment } from '../models/Payment';
+import useWindowSize from '../hooks/UseWindowSize';
 
 type Props = {
   type: 'item' | 'architecture' | 'interior';
@@ -25,6 +26,13 @@ export default function OrderSuccessOverlay({ type, show, setShow }: Props) {
     'track_service2.jpg',
     'track_service3.jpg',
   ];
+
+  const centerFixed = {
+    left: '50%',
+    marginLeft: '-14rem',
+  };
+
+  const size = useWindowSize();
 
   const itemSteps = [
     {
@@ -97,8 +105,9 @@ export default function OrderSuccessOverlay({ type, show, setShow }: Props) {
 
   return (
     <div
+      style={size.width > 448 ? centerFixed : {}}
       className={classNames(
-        'fixed left-0 top-0 bg-white w-full h-screen p-3 transition-all duration-500',
+        'fixed left-0 top-0 max-w-md border-l border-r border-gray-300 bg-white w-full h-screen p-3 transition-all duration-500',
         {
           'translate-y-full': !show,
         },

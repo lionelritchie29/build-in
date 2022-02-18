@@ -55,6 +55,7 @@ export default function StepOne({ type, setActiveIdx }: Props) {
       email,
       phone,
     });
+    CustomService.saveActiveStep(1);
     setActiveIdx(1);
   };
 

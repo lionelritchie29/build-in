@@ -51,6 +51,25 @@ export async function getServerSideProps(context) {
 
   const { type } = context.query;
 
+  if (!type) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
+  const previousUrl = context.req.headers.referer;
+  if (!previousUrl || !previousUrl.includes(`/custom/${type}/detail`)) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
   if (type === 'furniture') {
     return {
       redirect: {

@@ -63,6 +63,7 @@ export default function StepFour({ type, setActiveIdx }: Props) {
       },
     });
     setActiveIdx(4);
+    CustomService.saveActiveStep(4);
   };
 
   return (

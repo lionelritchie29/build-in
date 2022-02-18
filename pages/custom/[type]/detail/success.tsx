@@ -175,6 +175,25 @@ export async function getServerSideProps(context) {
   const randomShippingNumber = getRandom();
   const { type } = context.query;
 
+  if (!type) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
+  const previousUrl = context.req.headers.referer;
+  if (!previousUrl || !previousUrl.includes(`/custom/${type}/detail/order`)) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: { session, randomOrderNumber, randomShippingNumber, type },
   };

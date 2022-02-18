@@ -67,6 +67,7 @@ export default function StepFive({ type, setActiveIdx }: Props) {
       },
     });
     setActiveIdx(5);
+    CustomService.saveActiveStep(5);
   };
 
   return (

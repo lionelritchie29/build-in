@@ -8,6 +8,7 @@ import { OrderService } from '../services/OrderService';
 import { Shipping } from '../models/Shipping';
 import { Payment } from '../models/Payment';
 import { CustomService } from '../services/CustomService';
+import useWindowSize from '../hooks/UseWindowSize';
 
 type Props = {
   payments: {
@@ -48,6 +49,12 @@ export default function OrderOptionOverlay({
     setShow(false);
   };
 
+  const centerFixed = {
+    left: '50%',
+    marginLeft: '-14rem',
+    background: 'rgba(0,0,0,0.8)',
+  };
+
   const savePayment = (payment: Payment) => {
     if (forCart) {
       OrderService.savePayment(payment);
@@ -59,15 +66,17 @@ export default function OrderOptionOverlay({
     setShow(false);
   };
 
+  const size = useWindowSize();
+
   return (
     <div
+      style={size.width > 448 ? centerFixed : { background: 'rgba(0,0,0,0.8)' }}
       className={classNames(
-        'fixed top-0 left-0 w-full h-screen p-3 transition-all duration-500',
+        'fixed top-0 left-0 w-full max-w-md h-screen p-3 transition-all duration-500',
         {
           'translate-y-full': !show,
         },
-      )}
-      style={{ background: 'rgba(0,0,0,0.8)' }}>
+      )}>
       <h1 className='text-xl font-medium mb-4 text-gray-200 flex items-center'>
         <button onClick={() => setShow(false)}>
           <ArrowLeftIcon className='w-6 h-6 mr-2' />

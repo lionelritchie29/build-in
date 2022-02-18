@@ -40,6 +40,15 @@ export async function getServerSideProps(context) {
 
   const { type } = context.query;
 
+  if (type !== 'architecture' && type !== 'interior' && type !== 'furniture') {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: { session, type },
   };

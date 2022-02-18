@@ -1,3 +1,4 @@
+import { getSession } from 'next-auth/react';
 import Layout from '../../../../components/shared/_layout';
 
 export default function CustomTracking() {
@@ -27,4 +28,41 @@ export default function CustomTracking() {
       </div>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  const { type } = context.query;
+
+  if (!type) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
+  const previousUrl = context.req.headers.referer;
+  if (!previousUrl || !previousUrl.includes(`/custom/${type}/detail`)) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session, type },
+  };
 }

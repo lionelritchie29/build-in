@@ -1,4 +1,8 @@
-import { CUSTOM_KEY, CUSTOM_PAYMENT_KEY } from '../lib/constant';
+import {
+  CUSTOM_KEY,
+  CUSTOM_PAYMENT_KEY,
+  CUSTOM_STEP_KEY,
+} from '../lib/constant';
 import { CustomData } from '../models/CustomData';
 import { Payment } from '../models/Payment';
 
@@ -31,5 +35,13 @@ export class CustomService {
 
   public static getPayment(): Payment {
     return JSON.parse(localStorage.getItem(CUSTOM_PAYMENT_KEY) ?? '{}');
+  }
+
+  public static saveActiveStep(step: number) {
+    localStorage.setItem(CUSTOM_STEP_KEY, JSON.stringify(step));
+  }
+
+  public static getActiveStep(): string {
+    return localStorage.getItem(CUSTOM_STEP_KEY) ?? '0';
   }
 }

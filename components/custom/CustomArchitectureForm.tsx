@@ -49,7 +49,7 @@ export default function CustomArchitectureForm() {
         </select>
       </div>
 
-      <div className='grid grid-cols-3 gap-x-4'>
+      <div className='grid grid-cols-2 gap-x-4'>
         <div>
           <label className='block text-sm font-medium text-gray-700'>
             Panjang

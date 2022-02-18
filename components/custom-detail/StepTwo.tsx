@@ -55,6 +55,7 @@ export default function StepTwo({ type, setActiveIdx }: Props) {
       },
     });
     setActiveIdx(2);
+    CustomService.saveActiveStep(2);
   };
 
   return (

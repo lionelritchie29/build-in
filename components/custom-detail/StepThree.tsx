@@ -59,6 +59,7 @@ export default function StepThree({ type, setActiveIdx }: Props) {
       },
     });
     setActiveIdx(3);
+    CustomService.saveActiveStep(3);
   };
 
   return (

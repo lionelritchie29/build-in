@@ -197,7 +197,9 @@ export default function OrderPage({ type }: Props) {
         </div>
 
         <div className='mt-2'>
-          <Link href='/order/submit' passHref={true}>
+          <Link
+            href={`${router.asPath.replace('order', '')}/success`}
+            passHref={true}>
             <button
               type='submit'
               className='bg-primary-light hover:bg-primary-dark inline-flex w-full justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2'>
@@ -233,6 +235,25 @@ export async function getServerSideProps(context) {
   }
 
   const { type } = context.query;
+
+  if (!type) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
+  const previousUrl = context.req.headers.referer;
+  if (!previousUrl || !previousUrl.includes(`/custom/${type}/detail`)) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: { session, type },

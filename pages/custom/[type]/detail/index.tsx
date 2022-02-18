@@ -2,7 +2,7 @@ import { getSession } from 'next-auth/react';
 import Layout from '../../../../components/shared/_layout';
 import { capitalizeFirstLetter } from '../../../../lib/helper';
 import Stepper from 'react-stepper-horizontal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import StepOne from '../../../../components/custom-detail/StepOne';
 import StepTwo from '../../../../components/custom-detail/StepTwo';
@@ -11,6 +11,7 @@ import StepFour from '../../../../components/custom-detail/StepFour';
 import StepFive from '../../../../components/custom-detail/StepFive';
 import StepSix from '../../../../components/custom-detail/StepSix';
 import { Case, Switch } from 'react-if';
+import { CustomService } from '../../../../services/CustomService';
 
 type Props = {
   type: 'architecture' | 'interior' | 'furniture';
@@ -71,6 +72,12 @@ export default function CustomDetailPage({ type }: Props) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setActiveIdx(parseInt(CustomService.getActiveStep()));
+    }
+  }, []);
+
   return (
     <Layout title={`Detail Custom ${capitalizeFirstLetter(type)}`}>
       <div>
@@ -120,6 +127,25 @@ export async function getServerSideProps(context) {
   }
 
   const { type } = context.query;
+
+  if (!type) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
+
+  const previousUrl = context.req.headers.referer;
+  if (!previousUrl || !previousUrl.includes(`/custom/${type}`)) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: { session, type },

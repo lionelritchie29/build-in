@@ -48,9 +48,9 @@ export default function CartPage() {
 
   const bottomLinks = [
     {
-      title: '',
+      title: 'Chat',
       image: chatIcon,
-      href: '/cart',
+      href: '/chat',
     },
     {
       title: '',

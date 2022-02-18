@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import cartImg from '../../public/images/cart.png';
 import customImg from '../../public/images/custom.png';
 import filterImg from '../../public/images/filter.png';
+import categories from '../../data/categories.json';
 
 type Props = {
   title?: string;
@@ -16,6 +17,7 @@ type Props = {
   showCart: boolean;
   custom?: 'architecture' | 'interior' | 'furniture' | '';
   showFilter: boolean;
+  backLink?: string;
 };
 
 export default function Navbar({
@@ -24,6 +26,7 @@ export default function Navbar({
   showCart,
   custom,
   showFilter,
+  backLink,
 }: Props) {
   const router = useRouter();
   const [sideNavOpen, setSideNavOpen] = useState(false);
@@ -35,39 +38,39 @@ export default function Navbar({
     },
     {
       title: 'Furniture',
-      href: '/home',
+      href: '/categories/6',
     },
     {
       title: 'Arsitektur',
-      href: '/home',
+      href: '/categories/2',
     },
     {
       title: 'Interior',
-      href: '/home',
+      href: '/categories/4',
     },
     {
       title: 'Material',
-      href: '/home',
+      href: '/categories/5',
     },
     {
       title: 'Pertukangan',
-      href: '/home',
+      href: '/categories/3',
     },
     {
       title: 'Accesories',
-      href: '/home',
+      href: '/categories/1',
     },
     {
       title: 'Profile',
-      href: '/home',
+      href: '/profile',
     },
     {
       title: 'Seller',
-      href: '/home',
+      href: '/seller',
     },
     {
       title: 'Log out',
-      href: '/home',
+      href: '',
     },
   ];
 
@@ -81,7 +84,13 @@ export default function Navbar({
           />
         ) : (
           <ChevronLeftIcon
-            onClick={() => router.back()}
+            onClick={() => {
+              if (backLink) {
+                router.push(backLink);
+              } else {
+                router.back();
+              }
+            }}
             className='cursor-pointer w-6 h-6 mr-2'
           />
         )}
@@ -128,12 +137,18 @@ export default function Navbar({
       </div>
 
       <div
-        className={`z-20 absolute top-0 left-0 min-h-screen w-full transition-all duration-500 ${
-          sideNavOpen ? '' : '-translate-x-full'
+        onClick={() => setSideNavOpen(false)}
+        className={`z-20 absolute top-0 left-0 min-h-screen w-full transition-opacity duration-500 ${
+          sideNavOpen ? 'opacity-100 w-full' : 'opacity-0 w-0'
         }`}
-        style={{ background: 'rgba(0,0,0,0.5)' }}>
+        style={{ background: 'rgba(0,0,0,0.5)' }}></div>
+
+      <div
+        className={`z-20 absolute top-0 left-0 min-h-screen w-1/2 transition-all duration-500 ${
+          sideNavOpen ? '' : '-translate-x-full'
+        }`}>
         <div
-          className={`bg-gray-200 min-h-screen p-3 w-1/2 rounded-tr-xl rounded-br-xl`}>
+          className={`bg-gray-200 min-h-screen p-3 w-full rounded-tr-xl rounded-br-xl`}>
           <div>
             <ChevronLeftIcon
               onClick={() => setSideNavOpen(false)}

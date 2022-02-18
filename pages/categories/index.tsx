@@ -12,19 +12,19 @@ import { getSession } from 'next-auth/react';
 export default function Categories({ categories }) {
   const bottomLinks = [
     {
-      title: '',
+      title: 'Profile',
       image: profileIcon,
-      href: '/home',
+      href: '/profile',
     },
     {
-      title: '',
+      title: 'Home',
       image: homeIcon,
       href: '/home',
     },
     {
-      title: '',
+      title: 'Chat',
       image: chatIcon,
-      href: '/home',
+      href: '/chat',
     },
   ];
 

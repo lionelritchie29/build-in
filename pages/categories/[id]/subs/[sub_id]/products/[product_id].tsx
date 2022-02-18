@@ -57,17 +57,17 @@ export default function ProductDetailPage({ product }) {
 
   const bottomLinks = [
     {
-      title: '',
+      title: 'Chat',
       image: chatIcon,
-      href: '/home',
+      href: '/chat',
     },
     {
-      title: '',
+      title: 'Cart',
       image: cartIcon,
       href: '/cart',
     },
     {
-      title: '',
+      title: 'Order',
       href: '/home',
       text: 'Order',
       onClick: () => {

@@ -20,24 +20,23 @@ import { materials } from '../data/materials.json';
 import { accesories } from '../data/accesories.json';
 import { Else, If, Then } from 'react-if';
 import Link from 'next/link';
-import { useEffect } from 'react';
 
 export default function Home({ data }) {
   const bottomLinks = [
     {
-      title: '',
+      title: 'Profile',
       image: profileIcon,
-      href: '/home',
+      href: '/profile',
     },
     {
-      title: '',
+      title: 'Categories',
       image: categoryIcon,
       href: '/categories',
     },
     {
-      title: '',
+      title: 'chat',
       image: chatIcon,
-      href: '/home',
+      href: '/chat',
     },
   ];
 
@@ -89,7 +88,7 @@ export default function Home({ data }) {
         {[1, 2, 3].map((el, index) => (
           <div key={index} style={{ position: 'relative' }}>
             <Image
-              className={`tns-lazy-img rounded-md`}
+              className={`tns-lazy-img rounded-md object-fill`}
               src={`/images/furniture/beds/2.jpg`}
               data-src={el}
               alt=''
@@ -156,7 +155,7 @@ export async function getServerSideProps(context) {
   const data = [];
 
   while (data.length < 12) {
-    const idx = Math.floor(Math.random() * rawata.length);
+    const idx = Math.floor(Math.random() * rawData.length);
     if (!data.find((d) => d.id === rawData[idx].id)) data.push(rawData[idx]);
   }
 

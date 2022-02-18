@@ -60,8 +60,6 @@ export default function UpdateProfile({ user }: Props) {
       setMessage('');
     }
 
-    console.log(payload);
-
     setIsLoading(true);
     const res = await toast.promise(usersService.update(user._id, payload), {
       pending: 'Processing your request...',

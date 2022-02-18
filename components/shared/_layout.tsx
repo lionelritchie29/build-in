@@ -12,6 +12,7 @@ type Props = {
   withPadding?: boolean;
   showFilter?: boolean;
   custom?: 'architecture' | 'interior' | 'furniture' | '';
+  backLink?: string;
 };
 
 export default function Layout({
@@ -24,6 +25,7 @@ export default function Layout({
   withPadding,
   custom,
   showFilter,
+  backLink,
 }: Props) {
   withNavbar = withNavbar === undefined ? true : withNavbar;
   showMenu = showMenu === undefined ? false : showMenu;
@@ -47,6 +49,7 @@ export default function Layout({
             title={title}
             showCart={showCart}
             showMenu={showMenu}
+            backLink={backLink}
           />
         )}
         <main className={classNames({ 'px-4 py-2': withPadding }, className)}>

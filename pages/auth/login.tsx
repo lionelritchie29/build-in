@@ -147,7 +147,7 @@ export default function Login() {
           </button>
 
           <div className='text-right text-sm mt-2 font-medium text-gray-500 underline'>
-            <Link href='/auth/login'>Forgot password?</Link>
+            <Link href='/auth/forgot-password'>Forgot password?</Link>
 
             <div className='mt-2'>
               <Link href='/auth/register'>Dont have account yet? Register</Link>

@@ -10,6 +10,7 @@ import { UsersService } from '../../services/UsersService';
 import { ApiResponse } from '../../models/ApiResponse';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 type Inputs = {
   name: string;
@@ -275,6 +276,12 @@ export default function Register() {
             )}>
             Submit
           </button>
+        </div>
+
+        <div className='text-right text-sm mt-2 font-medium text-gray-500 underline'>
+          <div className='mt-2'>
+            <Link href='/auth/login'>Already have an account? Login</Link>
+          </div>
         </div>
       </form>
     </Layout>

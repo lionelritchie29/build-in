@@ -107,7 +107,7 @@ export default function OrderSuccessOverlay({ type, show, setShow }: Props) {
     <div
       style={size.width > 448 ? centerFixed : {}}
       className={classNames(
-        'fixed left-0 top-0 max-w-md border-l border-r border-gray-300 bg-white w-full h-screen p-3 transition-all duration-500',
+        'fixed left-0 top-0 max-w-md border-l border-r border-gray-400 bg-white w-full h-screen p-3 transition-all duration-500',
         {
           'translate-y-full': !show,
         },
@@ -131,14 +131,18 @@ export default function OrderSuccessOverlay({ type, show, setShow }: Props) {
           </div>
 
           <div className='flex justify-around mt-2'>
-            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-custom-green'>
+            <div className='relative text-white rounded-full w-8 h-8 border border-gray-200 bg-custom-green'>
               <CheckIcon />
+
+              <div className='absolute left-7 w-28 top-4 -z-10 border-b-4 border-custom-green'></div>
             </div>
-            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-custom-green'>
+            <div className='relative text-white rounded-full w-8 h-8 border border-gray-200 bg-custom-green'>
               <CheckIcon />
+
+              <div className='absolute left-7 w-28 top-4 -z-10 border-b-4 border-gray-300'></div>
             </div>
-            <div className='text-white rounded-full w-8 h-8 border border-gray-200 bg-custom-green'>
-              <CheckIcon />
+            <div className='text-white rounded-full w-8 h-8 border border-gray-400 bg-white'>
+              {/* <CheckIcon /> */}
             </div>
           </div>
         </div>
@@ -156,13 +160,24 @@ export default function OrderSuccessOverlay({ type, show, setShow }: Props) {
             : type === 'architecture'
             ? architectureSteps
             : interiorSteps
-          ).map((step) => (
+          ).map((step, idx, arr) => (
             <li key={step.desc} className='flex min-h-[50px]'>
               <div
-                className={classNames('w-4 h-4 rounded-full', {
+                className={classNames('relative w-5 h-5 rounded-full', {
                   'bg-gray-500': !step.active,
                   'bg-custom-green': step.active,
-                })}></div>
+                })}>
+                {idx !== 0 && (
+                  <div
+                    className={classNames(
+                      '-z-10 absolute bottom-2 right-2 h-20 border-r ',
+                      {
+                        'border-gray-400': idx !== arr.length - 1,
+                        'border-custom-green': idx === arr.length - 1,
+                      },
+                    )}></div>
+                )}
+              </div>
               <div className='ml-4 w-full'>
                 <div className='flex justify-between text-xs'>
                   <span className='block'>10 Agustus 2021</span>

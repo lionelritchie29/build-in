@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { getSession } from 'next-auth/react';
 import Layout from '../../../../components/shared/_layout';
 
@@ -16,11 +17,15 @@ export default function CustomTracking() {
       <div className='mt-4'>
         <h1 className='text-lg font-semibold'>Tracking Custom</h1>
         <ul className='mt-3 space-y-7'>
-          {steps.map((step) => (
+          {steps.map((step, idx) => (
             <li key={step} className='flex items-center'>
               <span
-                className='block w-6 h-6 rounded-full'
-                style={{ background: '#184d4e' }}></span>
+                className='relative block w-6 h-6 rounded-full'
+                style={{ background: '#184d4e' }}>
+                {idx !== 0 && (
+                  <div className='-z-10 absolute bottom-2 right-3 h-16 border-r-2 border-green-900'></div>
+                )}
+              </span>
               <span className='block font-medium text-sm ml-4'>{step}</span>
             </li>
           ))}

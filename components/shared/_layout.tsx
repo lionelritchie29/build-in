@@ -10,6 +10,7 @@ type Props = {
   showMenu?: boolean;
   showCart?: boolean;
   withPadding?: boolean;
+  showFilter?: boolean;
   custom?: 'architecture' | 'interior' | 'furniture' | '';
 };
 
@@ -22,11 +23,13 @@ export default function Layout({
   showCart,
   withPadding,
   custom,
+  showFilter,
 }: Props) {
   withNavbar = withNavbar === undefined ? true : withNavbar;
   showMenu = showMenu === undefined ? false : showMenu;
   showCart = showCart === undefined ? false : showCart;
   withPadding = withPadding === undefined ? true : withPadding;
+  showFilter = showFilter === undefined ? false : showFilter;
 
   return (
     <div>
@@ -39,6 +42,7 @@ export default function Layout({
       <div className='max-w-md mx-auto md:border-l md:border-r pb-16 border-gray-300 min-h-screen relative overflow-hidden'>
         {withNavbar && (
           <Navbar
+            showFilter={showFilter}
             custom={custom}
             title={title}
             showCart={showCart}

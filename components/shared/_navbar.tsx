@@ -8,15 +8,23 @@ import { signOut } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import cartImg from '../../public/images/cart.png';
 import customImg from '../../public/images/custom.png';
+import filterImg from '../../public/images/filter.png';
 
 type Props = {
   title?: string;
   showMenu: boolean;
   showCart: boolean;
   custom?: 'architecture' | 'interior' | 'furniture' | '';
+  showFilter: boolean;
 };
 
-export default function Navbar({ title, showMenu, showCart, custom }: Props) {
+export default function Navbar({
+  title,
+  showMenu,
+  showCart,
+  custom,
+  showFilter,
+}: Props) {
   const router = useRouter();
   const [sideNavOpen, setSideNavOpen] = useState(false);
 
@@ -80,7 +88,7 @@ export default function Navbar({ title, showMenu, showCart, custom }: Props) {
         <span className='text-xl font-semibold'>{title}</span>
       </div>
 
-      <div className='flex'>
+      <div className='flex items-center'>
         {custom && (
           <div className='cursor-pointer'>
             <Link href={`/custom/${custom}`} passHref={true}>
@@ -99,6 +107,19 @@ export default function Navbar({ title, showMenu, showCart, custom }: Props) {
             <Link href='/cart' passHref={true}>
               <div>
                 <Image src={cartImg} alt='Cart' width={55} height={50}></Image>
+              </div>
+            </Link>
+          </div>
+        )}
+        {showFilter && (
+          <div className='cursor-pointer'>
+            <Link href='/filter' passHref={true}>
+              <div className='flex'>
+                <Image
+                  src={filterImg}
+                  alt='Filter'
+                  width={50}
+                  height={50}></Image>
               </div>
             </Link>
           </div>

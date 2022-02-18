@@ -49,7 +49,6 @@ export default function Home({ data }) {
   };
 
   const getHref = (product) => {
-    console.log(product);
     const acc = accesories.find((c) =>
       c.products.some((p) => p.id === product.id),
     );
@@ -156,8 +155,8 @@ export async function getServerSideProps(context) {
 
   const data = [];
 
-  while (data.length < 6) {
-    const idx = Math.floor(Math.random() * rawData.length);
+  while (data.length < 12) {
+    const idx = Math.floor(Math.random() * rawata.length);
     if (!data.find((d) => d.id === rawData[idx].id)) data.push(rawData[idx]);
   }
 

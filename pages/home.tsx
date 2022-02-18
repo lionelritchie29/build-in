@@ -81,18 +81,28 @@ export default function Home({ data }) {
         showThumbs={false}
         showArrows={true}
         emulateTouch={true}>
-        {[1, 2, 3].map((el, index) => (
-          <div key={index} style={{ position: 'relative' }}>
-            <Image
-              className={`tns-lazy-img rounded-md object-fill`}
-              src={`/images/furniture/beds/2.jpg`}
-              data-src={el}
-              alt=''
-              width={400}
-              height={300}
-            />
-          </div>
-        ))}
+        {data
+          .filter(
+            (d, idx) =>
+              idx === data.length - 1 ||
+              idx === data.length - 2 ||
+              idx === data.length - 3,
+          )
+          .map((el, index) => (
+            <div
+              key={index}
+              className='border border-gray-300 rounded-md flex'
+              style={{ position: 'relative' }}>
+              <Image
+                className={`tns-lazy-img object-cover flex-1`}
+                src={`/images/${el.image}`}
+                data-src={el}
+                alt=''
+                width={400}
+                height={300}
+              />
+            </div>
+          ))}
       </Carousel>
 
       <ul className='grid grid-cols-3 gap-4 mt-4'>
@@ -101,7 +111,7 @@ export default function Home({ data }) {
             <Link href={getHref(p)} passHref={true}>
               <div className='cursor-pointer rounded border overflow-auto border-gray-300 flex'>
                 <Image
-                  src={`/images/furniture/beds/1.jpg`}
+                  src={`/images/${p.image}`}
                   alt=''
                   className='rounded object-cover flex-1'
                   width={150}

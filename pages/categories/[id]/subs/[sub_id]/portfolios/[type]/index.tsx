@@ -49,12 +49,15 @@ export default function PortfolioPage({ data, subCategory }) {
         {data.projects.map((project) => (
           <li className='flex' key={project.id}>
             <div className='w-2/5'>
-              <Image
-                src={`/images/furniture/beds/2.jpg`}
-                alt={project.name}
-                width={400}
-                height={275}
-              />
+              <div className='border border-gray-300 rounded-md flex'>
+                <Image
+                  src={`/images/${project.image}`}
+                  alt={project.name}
+                  width={400}
+                  height={275}
+                  className='object-cover flex-1'
+                />
+              </div>
             </div>
 
             <div className='w-3/5 ml-2'>

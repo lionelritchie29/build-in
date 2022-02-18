@@ -7,21 +7,21 @@
         {
           "id": "69884ae8-fae4-4837-9c22-4368388dbd82",
           "name": "River Park",
-          "image": "",
+          "image": "architecture/residentials/2.jpg",
           "creator": "Bagas Prakasa",
           "creator_image": ""
         },
         {
           "id": "e3b8b3b4-c26b-42be-a9ab-3f0b8ac2913b",
           "name": "Duo Courts Villa",
-          "image": "",
+          "image": "architecture/residentials/3.jpg",
           "creator": "Jon Ham",
           "creator_image": ""
         },
         {
           "id": "60bd6530-3ae6-4a81-9af5-858dd182c25e",
           "name": "Fwanker House",
-          "image": "",
+          "image": "architecture/residentials/1.jpg",
           "creator": "Sun Go",
           "creator_image": ""
         }
@@ -34,21 +34,21 @@
         {
           "id": "b33574e8-2634-4d6c-aaa3-9c181ff1d015",
           "name": "Riung Tower",
-          "image": "",
+          "image": "architecture/commercials/3.jpg",
           "creator": "Bagas Prakasa",
           "creator_image": ""
         },
         {
           "id": "5d4d1977-7265-4696-a601-6ad9e676fc2d",
-          "name": "Hotel Bandara Kerta",
-          "image": "",
+          "name": "Hotel Bandara Kertadjadi",
+          "image": "architecture/commercials/2.jpg",
           "creator": "Jon Ham",
           "creator_image": ""
         },
         {
           "id": "af26f913-8ef4-4d70-84b0-669aac461fc2",
           "name": "Una Tower",
-          "image": "",
+          "image": "architecture/commercials/1.jpg",
           "creator": "Sun Go",
           "creator_image": ""
         }

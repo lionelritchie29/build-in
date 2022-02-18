@@ -87,13 +87,15 @@ export default function PortfolioDetailPage({ project, subCategory }) {
   return (
     <Layout title='Bu!ld-In'>
       <div className='mt-3'>
-        <Image
-          src={`/images/furniture/beds/2.jpg`}
-          alt={project.name}
-          width={400}
-          height={300}
-          className='object-contain rounded'
-        />
+        <div className='border border-gray-300 rounded-md flex'>
+          <Image
+            src={`/images/${project.image}`}
+            alt={project.name}
+            width={400}
+            height={300}
+            className='object-contain flex-1'
+          />
+        </div>
         <h1 className='text-2xl font-semibold'>{project.name}</h1>
 
         <ul className='mt-3 space-y-1'>

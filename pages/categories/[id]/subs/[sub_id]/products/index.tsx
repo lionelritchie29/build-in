@@ -45,13 +45,13 @@ export default function ProductListPage({ data, category }) {
       <ul className='grid grid-cols-1 gap-y-6 py-4'>
         {data.products.map((product) => (
           <li key={product.id} className='flex'>
-            <div className='w-2/5'>
+            <div className='w-2/5 border border-gray-300 rounded-md flex'>
               <Image
-                src={`/images/furniture/beds/2.jpg`}
+                src={`/images/${product.image}`}
                 alt={product.name}
                 width={400}
                 height={275}
-                className='object-cover rounded-lg'
+                className='object-cover flex-1'
               />
             </div>
             <div className='w-3/5 ml-2'>

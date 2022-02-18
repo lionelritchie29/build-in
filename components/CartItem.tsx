@@ -53,13 +53,15 @@ export default function CartItemComponent({
           </div>
         )}
 
-        <Image
-          src={`/images/furniture/beds/2.jpg`}
-          width={400}
-          height={350}
-          alt={cart.id}
-          className='object-cover rounded-lg'
-        />
+        <div className='border border-gray-300 rounded-md flex'>
+          <Image
+            src={`/images/${cart.image}`}
+            width={400}
+            height={350}
+            alt={cart.id}
+            className='object-cover flex-1'
+          />
+        </div>
       </div>
       <div className='flex flex-col ml-2 w-3/5'>
         <span className='block font-medium text-sm'>{cart.name}</span>

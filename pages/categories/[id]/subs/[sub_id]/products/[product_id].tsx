@@ -94,14 +94,16 @@ export default function ProductDetailPage({ product }) {
   return (
     <Layout title='Bu!ld-In'>
       <div className='mt-3'>
-        <Image
-          src={`/images/furniture/beds/2.jpg`}
-          alt={product.name}
-          width={400}
-          height={300}
-          className='object-contain rounded'
-        />
-        <h1 className='text-xl font-semibold'>{product.name}</h1>
+        <div className='border border-gray-300 rounded-md flex'>
+          <Image
+            src={`/images/${product.image}`}
+            alt={product.name}
+            width={400}
+            height={300}
+            className='object-contain flex-1'
+          />
+        </div>
+        <h1 className='text-xl mt-1 font-semibold'>{product.name}</h1>
       </div>
 
       <ul className='mt-4 space-y-1'>

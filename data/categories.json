@@ -99,31 +99,31 @@
       "image": "categories/4.png",
       "sub_categories": [
         {
-          "id": "cfecbdda-e9aa-4407-b958-94b5996b76c4",
+          "id": "cfecbdda-e9aa-4407-b958-94b5996b76cz",
           "title": "Residential",
           "image": "interior/1.png",
           "type": "interior_residential"
         },
         {
-          "id": "6db47b11-999f-4772-ad06-03d64ca80352",
+          "id": "6db47b11-999f-4772-ad06-03d64ca8035z",
           "title": "Retail",
           "image": "interior/2.png",
           "type": "interior_retail"
         },
         {
-          "id": "93ed3df1-f085-494f-9c8c-315e2c6db7ac",
+          "id": "93ed3df1-f085-494f-9c8c-315e2c6db7az",
           "title": "Office",
           "image": "interior/3.png",
           "type": "interior_office"
         },
         {
-          "id": "5580e739-3879-492e-97bb-c2a71cbe22fe",
+          "id": "5580e739-3879-492e-97bb-c2a71cbe22fz",
           "title": "Hotel",
           "image": "interior/4.png",
           "type": "interior_hotel"
         },
         {
-          "id": "c145d429-38e6-4296-8333-441241058c59",
+          "id": "c145d429-38e6-4296-8333-441241058c5z",
           "title": "Commercial Merchandise",
           "image": "interior/5.png",
           "type": "interior_merch"

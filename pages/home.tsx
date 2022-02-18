@@ -9,15 +9,11 @@ import Image from 'next/image';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { formatter } from '../lib/helper';
-import { categories } from '../data/categories.json';
-import architecture_porto from '../data/architecture_portfolios.json';
-import { architectures } from '../data/architectures.json';
-import interior_port from '../data/interior_portfolios.json';
-import { interiors } from '../data/interiors.json';
-import { furnitures } from '../data/furnitures.json';
-import { others } from '../data/others.json';
-import { materials } from '../data/materials.json';
-import { accesories } from '../data/accesories.json';
+import categories from '../data/categories.json';
+import furnitures from '../data/furnitures.json';
+import others from '../data/others.json';
+import materials from '../data/materials.json';
+import accesories from '../data/accesories.json';
 import { Else, If, Then } from 'react-if';
 import Link from 'next/link';
 
@@ -48,16 +44,16 @@ export default function Home({ data }) {
   };
 
   const getHref = (product) => {
-    const acc = accesories.find((c) =>
+    const acc = accesories.accesories.find((c) =>
       c.products.some((p) => p.id === product.id),
     );
-    const furn = furnitures.find((c) =>
+    const furn = furnitures.furnitures.find((c) =>
       c.products.some((p) => p.id === product.id),
     );
-    const mat = materials.find((c) =>
+    const mat = materials.materials.find((c) =>
       c.products.some((p) => p.id === product.id),
     );
-    const other = others.find((c) =>
+    const other = others.others.find((c) =>
       c.products.some((p) => p.id === product.id),
     );
     const category = acc ?? furn ?? mat ?? other;
@@ -147,10 +143,10 @@ export async function getServerSideProps(context) {
 
   const rawData = [];
 
-  accesories.forEach((p) => rawData.push(...p.products));
-  materials.forEach((p) => rawData.push(...p.products));
-  furnitures.forEach((p) => rawData.push(...p.products));
-  others.forEach((p) => rawData.push(...p.products));
+  accesories.accesories.forEach((p) => rawData.push(...p.products));
+  materials.materials.forEach((p) => rawData.push(...p.products));
+  furnitures.furnitures.forEach((p) => rawData.push(...p.products));
+  others.others.forEach((p) => rawData.push(...p.products));
 
   const data = [];
 

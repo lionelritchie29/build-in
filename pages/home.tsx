@@ -157,6 +157,7 @@ export default function Home({ data, rawData }) {
               onClick={() => {
                 setFilter(false);
                 setProducts(data);
+                router.replace('/home');
               }}
               className='inline-flex mt-1 items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2'>
               Clear Filter

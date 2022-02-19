@@ -93,7 +93,9 @@ export default function FilterPage() {
       }
     });
 
-    const query = {};
+    const query = {
+      filter: true,
+    };
 
     if (minPrice !== MAX_NUMBER) query['minPrice'] = minPrice;
     if (maxPrice !== MIN_NUMBER) query['maxPrice'] = maxPrice;

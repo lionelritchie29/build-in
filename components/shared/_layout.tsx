@@ -71,10 +71,8 @@ export default function Layout({
 
       <div className='max-w-md mx-auto md:border-l md:border-r pb-16 border-gray-300 min-h-screen relative overflow-hidden'>
         {showInstall && (
-          <div
-            className='flex justify-between items-center px-2 py-4 border-b border-gray-500'
-            style={{ background: '#89bbc6' }}>
-            <span className='block font-semibold text-white'>Install app</span>
+          <div className='flex justify-between items-center px-2 py-2 border-b border-t border-gray-500'>
+            <span className='block font-semibold '>Install app</span>
 
             <button
               onClick={() => onInstallBtnClick()}

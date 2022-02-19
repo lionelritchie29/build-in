@@ -22,11 +22,13 @@ import { useRouter } from 'next/router';
 export default function Home({ data, rawData }) {
   const [products, setProducts] = useState(data);
   const router = useRouter();
+  const [isFilter, setFilter] = useState(false);
   const { minPrice, maxPrice, color, style, brand, location, other, filter } =
     router.query as any;
 
   useEffect(() => {
     if (filter) {
+      if (color || minPrice || maxPrice || brand || style) setFilter(true);
       let filtered = rawData;
 
       if (color) {
@@ -34,7 +36,9 @@ export default function Home({ data, rawData }) {
           if (d.variations) {
             return d.variations.some(
               (v) =>
-                (v.type === 'CheckedColor' || v.type === 'Color') &&
+                (v.type === 'CheckedColor' ||
+                  v.type === 'Color' ||
+                  v.type === 'Texture') &&
                 v.options.some((x) =>
                   x.toLowerCase().includes(color.toLowerCase()),
                 ),
@@ -146,34 +150,53 @@ export default function Home({ data, rawData }) {
         </div>
       </div>
 
-      <Carousel
-        className='mt-4'
-        showThumbs={false}
-        showArrows={true}
-        emulateTouch={true}>
-        {data
-          .filter(
-            (d, idx) =>
-              idx === data.length - 1 ||
-              idx === data.length - 2 ||
-              idx === data.length - 3,
-          )
-          .map((el, index) => (
-            <div
-              key={index}
-              className='border border-gray-300 rounded-md flex'
-              style={{ position: 'relative' }}>
-              <Image
-                className={`tns-lazy-img object-cover flex-1`}
-                src={`/images/${el.image}`}
-                data-src={el}
-                alt=''
-                width={400}
-                height={300}
-              />
-            </div>
-          ))}
-      </Carousel>
+      <If condition={isFilter}>
+        <Then>
+          <div className='text-right mt-2'>
+            <button
+              onClick={() => {
+                setFilter(false);
+                setProducts(data);
+              }}
+              className='inline-flex mt-1 items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2'>
+              Clear Filter
+            </button>
+          </div>
+        </Then>
+      </If>
+
+      <If condition={!isFilter}>
+        <Then>
+          <Carousel
+            className='mt-4'
+            showThumbs={false}
+            showArrows={true}
+            emulateTouch={true}>
+            {data
+              .filter(
+                (d, idx) =>
+                  idx === data.length - 1 ||
+                  idx === data.length - 2 ||
+                  idx === data.length - 3,
+              )
+              .map((el, index) => (
+                <div
+                  key={index}
+                  className='border border-gray-300 rounded-md flex'
+                  style={{ position: 'relative' }}>
+                  <Image
+                    className={`tns-lazy-img object-cover flex-1`}
+                    src={`/images/${el.image}`}
+                    data-src={el}
+                    alt=''
+                    width={400}
+                    height={300}
+                  />
+                </div>
+              ))}
+          </Carousel>
+        </Then>
+      </If>
 
       <ul className='grid grid-cols-3 gap-4 mt-4'>
         {products.map((p, idx) => (

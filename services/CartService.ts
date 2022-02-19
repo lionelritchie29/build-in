@@ -114,6 +114,12 @@ export class CartService {
     return total;
   }
 
+  public static delete(id: string) {
+    const cart: CartItem[] = JSON.parse(localStorage.getItem(CART_KEY) ?? '[]');
+    const newCart = cart.filter((c) => c.id !== id);
+    localStorage.setItem(CART_KEY, JSON.stringify(newCart));
+  }
+
   private static getType(
     categoryId: string | number,
   ):

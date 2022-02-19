@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { getSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { If, Then } from 'react-if';
 import Layout from '../../../../components/shared/_layout';
@@ -26,6 +27,7 @@ export default function CustomSuccess({
   const [payment, setPayment] = useState<Payment>();
   const [totalPrice, setTotalPrice] = useState(0);
   const [custom, setCustom] = useState<CustomData>();
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -150,11 +152,14 @@ export default function CustomSuccess({
           </div>
         </div>
 
-        <Link href='/home' passHref={true}>
-          <button className='inline-flex w-full justify-center items-center px-2.5 py-1.5 border border-transparent font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 mt-3'>
-            Close
-          </button>
-        </Link>
+        <button
+          onClick={() => {
+            CustomService.clear();
+            router.push('/home');
+          }}
+          className='inline-flex w-full justify-center items-center px-2.5 py-1.5 border border-transparent font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 mt-3'>
+          Close
+        </button>
       </div>
     </Layout>
   );

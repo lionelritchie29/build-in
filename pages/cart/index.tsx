@@ -25,9 +25,18 @@ export default function CartPage() {
   }, []);
 
   const clear = () => {
-    CartService.clear();
-    setCarts([]);
-    setCheckeds([]);
+    if (checkeds.every((c) => c === false)) {
+      alert('Select an item first');
+      return;
+    }
+
+    checkeds.forEach((c, i) => {
+      if (c) CartService.delete(carts[i].id);
+    });
+
+    const updatedCarts = CartService.getAll();
+    setCarts(updatedCarts);
+    setCheckeds(Array(updatedCarts.length).fill(false));
   };
 
   const checkAll = (e) => {
@@ -102,7 +111,7 @@ export default function CartPage() {
         })}
       </ul>
 
-      {carts.length && <BottomNav links={bottomLinks} />}
+      {carts.length > 0 && <BottomNav links={bottomLinks} />}
     </Layout>
   );
 }

@@ -198,7 +198,7 @@ export default function OrderPage({ type }: Props) {
 
         <div className='mt-2'>
           <Link
-            href={`${router.asPath.replace('order', '')}/success`}
+            href={`${router.asPath.replace('order', '')}success`}
             passHref={true}>
             <button
               type='submit'

@@ -130,7 +130,7 @@ export default function FilterPage() {
             <input
               type='text'
               className='focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm p-2 border border-gray-300 rounded-md'
-              placeholder='Search'
+              placeholder='Industrial, Lifewear, Display, Modern, etc'
               onChange={(e) => setStyle(e.target.value)}
             />
           </div>
@@ -148,7 +148,7 @@ export default function FilterPage() {
             <input
               type='text'
               className='focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm p-2 border border-gray-300 rounded-md'
-              placeholder='Search'
+              placeholder='Product name or brand'
               onChange={(e) => setBrand(e.target.value)}
             />
           </div>
@@ -213,7 +213,7 @@ export default function FilterPage() {
               onChange={(e) => setColor(e.target.value)}
               type='text'
               className='focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm p-2 border border-gray-300 rounded-md'
-              placeholder='Search'
+              placeholder='White, Yellow, Kayu Meranti, Kayu Pinus, etc'
             />
           </div>
         </div>

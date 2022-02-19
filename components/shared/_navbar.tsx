@@ -101,10 +101,11 @@ export default function Navbar({
         {custom && (
           <div className='cursor-pointer'>
             <Link href={`/custom/${custom}`} passHref={true}>
-              <div>
+              <div className='flex'>
                 <Image
                   src={customImg}
                   alt='Custom'
+                  className='flex-1'
                   width={45}
                   height={40}></Image>
               </div>

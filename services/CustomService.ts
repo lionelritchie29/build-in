@@ -44,4 +44,10 @@ export class CustomService {
   public static getActiveStep(): string {
     return localStorage.getItem(CUSTOM_STEP_KEY) ?? '0';
   }
+
+  public static clear() {
+    localStorage.removeItem(CUSTOM_STEP_KEY);
+    localStorage.removeItem(CUSTOM_PAYMENT_KEY);
+    localStorage.removeItem(CUSTOM_KEY);
+  }
 }

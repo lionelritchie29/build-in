@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { getSession, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { format } from 'path/posix';
 import { useEffect, useState } from 'react';
 import { If, Then } from 'react-if';
@@ -44,6 +45,7 @@ export default function OrderSuccess({
   const [trackingType, setTrackingType] = useState<
     'architecture' | 'interior' | 'item'
   >('item');
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -214,11 +216,14 @@ export default function OrderSuccess({
           </div>
         </div>
 
-        <Link href='/home' passHref={true}>
-          <button className='inline-flex w-full justify-center items-center px-2.5 py-1.5 border border-transparent font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 mt-3'>
-            Close
-          </button>
-        </Link>
+        <button
+          onClick={() => {
+            CartService.clear();
+            router.push('/home');
+          }}
+          className='inline-flex w-full justify-center items-center px-2.5 py-1.5 border border-transparent font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 mt-3'>
+          Close
+        </button>
       </div>
 
       <OrderSuccessOverlay

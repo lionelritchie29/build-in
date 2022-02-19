@@ -16,10 +16,58 @@ import materials from '../data/materials.json';
 import accesories from '../data/accesories.json';
 import { Else, If, Then } from 'react-if';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Home({ data, rawData }) {
   const [products, setProducts] = useState(data);
+  const router = useRouter();
+  const { minPrice, maxPrice, color, style, brand, location, other, filter } =
+    router.query as any;
+
+  useEffect(() => {
+    if (filter) {
+      let filtered = rawData;
+
+      if (color) {
+        filtered = filtered.filter((d) => {
+          if (d.variations) {
+            return d.variations.some(
+              (v) =>
+                (v.type === 'CheckedColor' || v.type === 'Color') &&
+                v.options.some((x) => x.toLowerCase().includes(color)),
+            );
+          } else {
+            return false;
+          }
+        });
+      }
+
+      if (brand) {
+        filtered = filtered.filter((d) => d.name.includes(brand));
+      }
+
+      if (style) {
+        filtered = filtered.filter((d) => d.style && d.style.includes(style));
+      }
+
+      if (minPrice && maxPrice) {
+        filtered = filtered.filter((d) => {
+          if (!d.price) return false;
+          if (typeof d.price === 'string') {
+            const split = d.price.split('-');
+            return (
+              parseInt(split[0]) >= minPrice && parseInt(split[1]) <= maxPrice
+            );
+          } else {
+            return d.price >= minPrice && d.price <= maxPrice;
+          }
+        });
+      }
+
+      setProducts(filtered);
+    }
+  }, []);
 
   const bottomLinks = [
     {
@@ -176,6 +224,7 @@ export async function getServerSideProps(context) {
 
   const data = [];
 
+  // return random products
   while (data.length < 12) {
     const idx = Math.floor(Math.random() * rawData.length);
     if (!data.find((d) => d.id === rawData[idx].id)) data.push(rawData[idx]);

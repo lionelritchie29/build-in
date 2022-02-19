@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import useWindowSize from '../../hooks/UseWindowSize';
 import Navbar from './_navbar';
 
 type Props = {
@@ -35,6 +36,7 @@ export default function Layout({
   showFilter = showFilter === undefined ? false : showFilter;
   const [showInstall, setShowInstall] = useState(false);
   const [deferredPrompt, setDeferredPromp] = useState(null);
+  const size = useWindowSize();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -70,7 +72,7 @@ export default function Layout({
       </Head>
 
       <div className='max-w-md mx-auto md:border-l md:border-r pb-16 border-gray-300 min-h-screen relative overflow-hidden'>
-        {showInstall && (
+        {showInstall && size.width <= 448 && (
           <div className='flex justify-between items-center px-2 py-2 border-b border-t border-gray-500'>
             <span className='block font-semibold '>Install app</span>
 

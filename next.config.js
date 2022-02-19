@@ -12,4 +12,11 @@ const nextConfig = withPWA({
   disable: process.env.NODE_ENV === 'development',
 });
 
+// const nextConfig = {
+//   reactStrictMode: true,
+//   images: {
+//     domains: ['i.pravatar.cc'],
+//   },
+// };
+
 module.exports = nextConfig;

@@ -35,7 +35,9 @@ export default function Home({ data, rawData }) {
             return d.variations.some(
               (v) =>
                 (v.type === 'CheckedColor' || v.type === 'Color') &&
-                v.options.some((x) => x.toLowerCase().includes(color)),
+                v.options.some((x) =>
+                  x.toLowerCase().includes(color.toLowerCase()),
+                ),
             );
           } else {
             return false;
@@ -44,11 +46,15 @@ export default function Home({ data, rawData }) {
       }
 
       if (brand) {
-        filtered = filtered.filter((d) => d.name.includes(brand));
+        filtered = filtered.filter((d) =>
+          d.name.toLowerCase().includes(brand.toLowerCase()),
+        );
       }
 
       if (style) {
-        filtered = filtered.filter((d) => d.style && d.style.includes(style));
+        filtered = filtered.filter(
+          (d) => d.style && d.style.toLowerCase().includes(style.toLowerCase()),
+        );
       }
 
       if (minPrice && maxPrice) {

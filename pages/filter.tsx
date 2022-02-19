@@ -103,18 +103,6 @@ export default function FilterPage() {
     if (location) query['location'] = location;
     if (other) query['other'] = other;
 
-    if (
-      minPrice !== MAX_NUMBER ||
-      maxPrice !== MIN_NUMBER ||
-      color ||
-      style ||
-      brand ||
-      location ||
-      other
-    ) {
-      query['filter'] = true;
-    }
-
     router.push({
       pathname: '/home',
       query,

@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import Navbar from './_navbar';
 
 type Props = {
@@ -32,6 +33,33 @@ export default function Layout({
   showCart = showCart === undefined ? false : showCart;
   withPadding = withPadding === undefined ? true : withPadding;
   showFilter = showFilter === undefined ? false : showFilter;
+  const [showInstall, setShowInstall] = useState(false);
+  const [deferredPrompt, setDeferredPromp] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        setDeferredPromp(e);
+        setShowInstall(true);
+        console.log('Before install prompt fired');
+      });
+
+      window.addEventListener('appinstalled', () => {
+        setShowInstall(false);
+        setDeferredPromp(null);
+        console.log('PWA was installed');
+      });
+    }
+  }, []);
+
+  const onInstallBtnClick = async () => {
+    setShowInstall(false);
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to the install prompt: ${outcome}`);
+    setDeferredPromp(null);
+  };
 
   return (
     <div>
@@ -42,6 +70,19 @@ export default function Layout({
       </Head>
 
       <div className='max-w-md mx-auto md:border-l md:border-r pb-16 border-gray-300 min-h-screen relative overflow-hidden'>
+        {showInstall && (
+          <div
+            className='flex justify-between items-center px-2 py-4 border-b border-gray-500'
+            style={{ background: '#89bbc6' }}>
+            <span className='block font-semibold text-white'>Install app</span>
+
+            <button
+              onClick={() => onInstallBtnClick()}
+              className='inline-flex mt-1 items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2'>
+              Download
+            </button>
+          </div>
+        )}
         {withNavbar && (
           <Navbar
             showFilter={showFilter}
